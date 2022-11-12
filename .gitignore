@@ -433,4 +433,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+#back 설정 파일 추가
+**/**/*.yml
+**/**/*.xml
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,jetbrains,macos,java,reactnative
