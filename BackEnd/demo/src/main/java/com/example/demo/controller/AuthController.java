@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.AuthService;
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/auth")
+@Api(tags = {"인증관련 API"})
 public class AuthController {
 
     private final AuthService authService;
