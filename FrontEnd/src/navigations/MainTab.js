@@ -8,6 +8,8 @@ import BoardScreen from "../screenss/Board/BoardScreen";
 import MyPageScreen from "../screenss/mypage/MyPageScreen";
 import ChatScreen from "../screenss/chat/ChatScreen";
 
+Icon.loadFont();
+
 const Tab = createBottomTabNavigator();
 
 const TabBarIcon = ({focused, name}) => {
@@ -63,7 +65,7 @@ const MainTab = () => {
                     tabBarIcon :({ focused }) =>
                     TabBarIcon({
                         focused,
-                        name: focused ? 'cafe' : 'cafe-outline',
+                        name: focused ? 'pencil' : 'pencil-outline',
                     }),
                 }}
             />
@@ -81,7 +83,7 @@ const MainTab = () => {
                     tabBarIcon :({ focused }) =>
                     TabBarIcon({
                         focused,
-                        name: focused ? 'notifications' : 'notifications-outline',
+                        name: focused ? 'chatbox-ellipses' : 'chatbox-ellipses-outline',
                     }),
                 }}
             />

@@ -3,6 +3,8 @@ import {StatusBar} from "react-native";
 import {ThemeProvider} from "styled-components";
 import {theme} from "./theme";
 import Navigation from "./navigations/Index";
+import { setCustomText } from "react-native-global-props";
+
 
 const App = () => {
 
