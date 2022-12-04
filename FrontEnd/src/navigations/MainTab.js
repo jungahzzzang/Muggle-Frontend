@@ -3,10 +3,10 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from "react-native-vector-icons/Ionicons"
 import { ThemeContext } from "styled-components";
 //각 페이지
-import MainScreen from "../screenss/main/MainScreen";
-import BoardScreen from "../screenss/Board/BoardScreen";
-import MyPageScreen from "../screenss/mypage/MyPageScreen";
-import ChatScreen from "../screenss/chat/ChatScreen";
+import MainScreen from "../screens/main/MainScreen";
+import BoardScreen from "../screens/Board/BoardScreen";
+import MyPageListScreen from "../screens/mypage/MyPageListScreen";
+import ChatScreen from "../screens/chat/ChatScreen";
 
 Icon.loadFont();
 
@@ -70,7 +70,7 @@ const MainTab = () => {
                 }}
             />
             <Tab.Screen
-                name="채팅"
+                name="뮤글 거래소"
                 component={ChatScreen}
                 options={{
                     headerStyle: {
@@ -90,7 +90,7 @@ const MainTab = () => {
         
             <Tab.Screen
                 name="마이페이지"
-                component={MyPageScreen}
+                component={MyPageListScreen}
                 options={{
                     headerStyle: {
                         height: 40
