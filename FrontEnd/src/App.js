@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {StatusBar} from "react-native";
 import {ThemeProvider} from "styled-components";
+import SplashScreen from "react-native-splash-screen";
 import {theme} from "./theme";
 import Navigation from "./navigations/Index";
-import { setCustomText } from "react-native-global-props";
 
 
 const App = () => {
@@ -20,6 +20,10 @@ const App = () => {
      //         <StatusBar barStyle="dark-content"/>
      //     </ThemeProvider>
      // );
+
+     useEffect(() => {
+        SplashScreen.hide();
+     }, []);
  
  
      return (
