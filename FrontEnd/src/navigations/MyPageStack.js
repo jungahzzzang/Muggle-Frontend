@@ -1,36 +1,35 @@
-import {createDrawerNavigator} from "react-navigation-drawer"
-import MyPageListScreen from "../screens/mypage/MyPageListScreen";
-//각 페이지
+import React, {useContext} from "react";
+import { ThemeContext } from "styled-components";
+import { createStackNavigator } from "@react-navigation/stack";
 import FAQScreen from "../screens/mypage/FAQScreen";
 import NoticeListScreen from "../screens/mypage/NoticeListScreen";
-import PerrsonalInfoScreen from "../screens/mypage/PersonalInfoScreen";
+import PersonalInfoScreen from "../screens/mypage/PersonalInfoScreen";
 import ProfileScreen from "../screens/mypage/ProfileScreen";
+import SettingsScreen from "../screens/mypage/SettingsScreen";
 import TermsScreen from "../screens/mypage/TermsScreen";
 
+const Stack = createStackNavigator();
 
-const MyPageStack = createDrawerNavigator(
-    
-    {
-        FAQScreen: {
-            screen: FAQScreen,
-        },
-        NoticeListScreen : {
-            screen: NoticeListScreen,
-        },
-        PerrsonalInfoScreen : {
-            screen: PerrsonalInfoScreen,
-        },
-        ProfileScreen : {
-            screen: ProfileScreen,
-        },
-        TermsScreen : {
-            screen: TermsScreen,
-        }
-    },
-    {
-        //drawerWidth: Dimensions.get(`window`).width -150,
-        contentComponent: props => <MyPageListScreen {...props} />
-    }
-)
+const MyPageStack = () => {
+
+    const theme = useContext(ThemeContext);
+
+    <Stack.Navigator
+        screenOptions={{
+            headerShown: false,
+            headerTitleAlign: 'center',
+            headerTintColor: theme.headerTintColor,
+            cardStyle: {backgroundColor: theme.backgroundColor},
+            headerBackTitleVisible: false,
+        }}
+    >
+        <Stack.Screen name="FAQ" component={FAQScreen} />
+        <Stack.Screen name="NoticeList" component={NoticeListScreen} />
+        <Stack.Screen name="PersonalInfo" component={PersonalInfoScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Settings" component={SettingsScreen} />
+        <Stack.Screen name="Terms" component={TermsScreen} />
+    </Stack.Navigator>
+}
 
 export default MyPageStack;

@@ -1,38 +1,49 @@
-import React, {useState} from "react";
-import {FlatList, StyleSheet, View, TouchableOpacity} from "react-native";
+import React from "react";
+import {FlatList, StyleSheet, View, TouchableOpacity, ScrollView} from "react-native";
 import { defaultFontText as Text } from "../../components/Text";
 import NavigationHeader from "../../components/NavigationHeader";
+import FlatListItem from "../../components/FlatListItem";
+import FlatData from "../../assets/json/FlatData";
+import Routes from "../../navigations/Routes";
 
 class MyPageListScreen extends React.Component {
 
-    state  = {
-        routes: [
-            {title: '계정관리', name: 'ProfileScreen'},
-            {title: '공지사항', name: 'NoticeListScreen'},
-            {title: '앱 설정', name: 'SettingsScreen'},
-            {title: '자주 묻는 질문', name: 'FAQScreen'},
-            {title: '개인정보처리방침', name: 'PersonalInfoScreen'},
-            {title: '서비스 이용약관', name: 'TermsScreen'},
-        ]
-    };
-
     render(){
+        const { navigate } = this.props.navigation;
+
         return (
-                <View style={styles.container}>
-                    <NavigationHeader title={"마이페이지"} navigation={this.props.navigation}/>
-                        <FlatList
-                            data={this.state.routes}
-                            renderItem={({item}) => 
-                                <Item
-                                    item={item}
-                                    navigate={this.props.navigation.navigate}
-                                />
-                            }
-                            keyExtractor={item => item.name}
-                        />
-                </View>
+                <ScrollView>
+                    <View style={styles.container}>
+                        <NavigationHeader title={"마이페이지"} navigation={navigate}/>
+                            <FlatListItem
+                                title={FlatData[0].title}
+                                onPress={() => this.props.navigation.navigate(Routes.Profile)}
+                            />
+                            <FlatListItem
+                                title={FlatData[1].title}
+                                onPress={() => this.props.navigation.navigate(Routes.NoticeList)}
+                            />
+                            <FlatListItem
+                                title={FlatData[2].title}
+                                onPress={() => this.props.navigation.navigate(Routes.Settings)}
+                            />
+                            <FlatListItem
+                                title={FlatData[3].title}
+                                onPress={() => this.props.navigation.navigate(Routes.FAQ)}
+                            />
+                            <FlatListItem
+                                title={FlatData[4].title}
+                                onPress={() => this.props.navigation.navigate(Routes.PersonalInfo)}
+                            />
+                            <FlatListItem
+                                title={FlatData[5].title}
+                                onPress={() => this.props.navigation.navigate(Routes.Terms)}
+                            />
+                    </View>
+                </ScrollView>
         )
     }
+
 }
 
 function Item({ item, navigate }) {

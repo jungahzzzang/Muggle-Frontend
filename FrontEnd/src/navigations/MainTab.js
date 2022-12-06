@@ -3,17 +3,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from "react-native-vector-icons/Ionicons"
 import { ThemeContext } from "styled-components";
 //각 페이지
-<<<<<<< Updated upstream
 import MainScreen from "../screens/main/MainScreen";
 import BoardScreen from "../screens/Board/BoardScreen";
 import MyPageListScreen from "../screens/mypage/MyPageListScreen";
 import ChatScreen from "../screens/chat/ChatScreen";
-=======
-import MainScreen from "../screenss/main/MainScreen";
-import BoardScreen from "../screenss/Board/BoardScreen";
-import MyPageScreen from "../screenss/mypage/MyPageListScreen";
-import ChatScreen from "../screenss/chat/ChatScreen";
->>>>>>> Stashed changes
+
 
 Icon.loadFont();
 
@@ -50,7 +44,7 @@ const MainTab = () => {
                         fontSize: 13
                     },
                     headerTintColor: "#1D5349",
-                    //headerShown: false,
+                    headerShown: false,
                     tabBarIcon :({ focused }) =>
                     TabBarIcon({
                         focused,
@@ -77,11 +71,7 @@ const MainTab = () => {
                 }}
             />
             <Tab.Screen
-<<<<<<< Updated upstream
-                name="뮤글 거래소"
-=======
                 name="뮤글거래소"
->>>>>>> Stashed changes
                 component={ChatScreen}
                 options={{
                     headerStyle: {
