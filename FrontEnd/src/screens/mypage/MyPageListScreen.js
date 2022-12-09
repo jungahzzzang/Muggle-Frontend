@@ -1,9 +1,9 @@
 import React from "react";
-import {FlatList, StyleSheet, View, TouchableOpacity, ScrollView} from "react-native";
+import {StyleSheet, View, TouchableOpacity, ScrollView} from "react-native";
 import { defaultFontText as Text } from "../../components/Text";
 import NavigationHeader from "../../components/NavigationHeader";
 import FlatListItem from "../../components/FlatListItem";
-import FlatData from "../../assets/json/FlatData";
+import {FlatData} from "../../assets/json/FlatData";
 import Routes from "../../navigations/Routes";
 
 class MyPageListScreen extends React.Component {
@@ -14,7 +14,7 @@ class MyPageListScreen extends React.Component {
         return (
                 <ScrollView>
                     <View style={styles.container}>
-                        <NavigationHeader title={"마이페이지"} navigation={navigate}/>
+                        <NavigationHeader title={"마이페이지"} navigation={this.props.navigation}/>
                             <FlatListItem
                                 title={FlatData[0].title}
                                 onPress={() => this.props.navigation.navigate(Routes.Profile)}
