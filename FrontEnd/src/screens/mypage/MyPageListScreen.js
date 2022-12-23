@@ -9,12 +9,11 @@ import Routes from "../../navigations/Routes";
 class MyPageListScreen extends React.Component {
 
     render(){
-        const { navigate } = this.props.navigation;
 
         return (
                 <ScrollView>
                     <View style={styles.container}>
-                        <NavigationHeader title={"마이페이지"} navigation={this.props.navigation}/>
+                        <NavigationHeader title={"마이페이지"} />
                             <FlatListItem
                                 title={FlatData[0].title}
                                 onPress={() => this.props.navigation.navigate(Routes.Profile)}

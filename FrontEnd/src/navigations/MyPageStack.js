@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { ThemeContext } from "styled-components";
 import { createStackNavigator } from "@react-navigation/stack";
 import FAQScreen from "../screens/mypage/FAQScreen";
-import NoticeListScreen from "../screens/mypage/NoticeListScreen";
+import NoticeListScreen from "../screens/mypage/notice/NoticeListScreen";
 import PersonalInfoScreen from "../screens/mypage/PersonalInfoScreen";
 import ProfileScreen from "../screens/mypage/ProfileScreen";
 import SettingsScreen from "../screens/mypage/SettingsScreen";

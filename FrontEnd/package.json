@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/bottom-tabs": "^6.4.3",
+    "@react-navigation/core": "^6.4.5",
     "@react-navigation/native": "^6.0.16",
     "@react-navigation/stack": "^6.3.7",
     "deprecated-react-native-prop-types": "^3.0.1",

@@ -1,0 +1,6 @@
+module Pods_FrontEnd_FrontEndTests {
+  umbrella header "Pods-FrontEnd-FrontEndTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

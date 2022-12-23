@@ -8,7 +8,7 @@ class ChatScreen extends React.Component{
     render(){
         return(
             <View style={styles.container}>
-                <NavigationHeader title={"뮤글 거래소"} navigation={this.props.navigation}/>
+                <NavigationHeader title={"뮤글 거래소"} />
                 <Text style={{fontSize: 15}}>게시판</Text>
             </View>
         )
