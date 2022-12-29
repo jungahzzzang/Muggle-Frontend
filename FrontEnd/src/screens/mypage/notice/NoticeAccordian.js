@@ -4,34 +4,27 @@ import { defaultFontText as Text } from "../../../components/Text";
 import Icon from "react-native-vector-icons/Ionicons"
 import { NoticeData } from "../../../assets/json/FlatData";
 
-const NoticeSection = ({ title, items }) => {
+const NoticeAccordian = ({title, body, date}) => {
 
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleOpen = useCallback(() => {
-        setIsOpen(value => !value);
-        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    }, []);
+    const [showContent, setShowContent] = useState(false);
 
     return(
-        <>
-            <TouchableOpacity>
-                <Text>{title}</Text>
-                <Icon name={isOpen ? "chevron-up-outline" : "chevron-down-outline"} size={18} color="black" />
-                <View style={[styles.list, !isOpen ? styles.hidden : undefined]}>
-                    <FlatList
-                    data={NoticeData}
-                    keyExtractor={(item)=>item}
-                    renderItem={({item}) => (
-                        <View style={styles.notice}>
-                            <Text style={styles.day}>{item.date}</Text>
-                            <Text style={styles.title}>{item.title}</Text>
-                        </View>
-                    )}
-                    />
+        <View>
+            <TouchableOpacity onPress={() => setShowContent(!showContent)}>
+                <View style={styles.notice}>
+                    <Text style={styles.day}>{date}</Text>
+                    <Text style={styles.title}>{title}</Text>
+                    <Icon name={showContent ? "chevron-up-outline" : "chevron-down-outline"} size={18} color="black" />
                 </View>
             </TouchableOpacity>
-        </>
+            {
+                showContent && (
+                    <View>
+                        <Text style={styles.body}>{body}</Text>
+                    </View>
+                )
+            }
+        </View>
     )
 }
 
@@ -68,4 +61,15 @@ const styles = StyleSheet.create({
         backgroundColor: "#DB4455",
         borderRadius: 30
       },
-})
+      body: {
+        lineHeight: 30,
+      },
+      touchableOpacity: {
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-end'
+      }
+});
+
+export default NoticeAccordian;

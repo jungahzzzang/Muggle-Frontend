@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/Ionicons"
 import { ThemeContext } from "styled-components";
 //각 페이지
 import MainScreen from "../screens/main/MainScreen";
-import BoardScreen from "../screens/Board/BoardScreen";
+import BoardTab from "../screens/Board/BoardTab";
 import MyPageListScreen from "../screens/mypage/MyPageListScreen";
 import ChatScreen from "../screens/chat/ChatScreen";
 
@@ -54,7 +54,7 @@ const MainTab = () => {
             />
             <Tab.Screen
                 name="게시판"
-                component={BoardScreen}
+                component={BoardTab}
                 options={{
                     headerStyle: {
                         height: 40

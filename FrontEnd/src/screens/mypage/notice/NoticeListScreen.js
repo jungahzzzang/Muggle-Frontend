@@ -4,34 +4,28 @@ import { defaultFontText as Text } from "../../../components/Text";
 import NavigationHeader from "../../../components/NavigationHeader";
 import Icon from "react-native-vector-icons/Ionicons"
 import { NoticeData } from "../../../assets/json/FlatData";
+import NoticeAccordian from "./NoticeAccordian";
 
-const [isOpen, setIsOpen] = useState(false);
+export default class NoticeListScreen extends React.Component{
 
-const toggleOpen = useCallback(() => {
-    setIsOpen(value => !value);
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-  }, []);
-
-class NoticeListScreen extends React.Component{
     render(){
+
       return(
         <View style={styles.container}>
           <SafeAreaView>
             <NavigationHeader title={"뮤글 공지사항"} />
-              <View style={[styles.list, !isOpen ? styles.hidden : undefined]}>
+              <View style={styles.list}>
                   <FlatList
-                      data={NoticeData}
-                      keyExtractor={(item)=>item}
-                      renderItem={({item}) => (
-                        <TouchableOpacity onPress={toggleOpen}>
-                          <View style={styles.notice}>
-                              <Text style={styles.day}>{item.date}</Text>
-                              <Text style={styles.title}>{item.title}</Text>
-                              <Icon name={isOpen ? "chevron-up-outline" : "chevron-down-outline"} size={18} color="black" />
-                          </View>
-                        </TouchableOpacity>  
-                      )}
-                      />
+                    data={NoticeData}
+                    keyExtractor={item => item.title}
+                    renderItem={
+                      ({item}) => {
+                        return(
+                          <NoticeAccordian title={item.title} body={item.body} date={item.date}/>
+                        )
+                      }
+                    }
+                  />
                 </View>
           </SafeAreaView>
         </View>
@@ -83,4 +77,4 @@ const styles = StyleSheet.create({
       },
 });
 
-export default NoticeListScreen;
+//export default NoticeListScreen;
