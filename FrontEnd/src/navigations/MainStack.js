@@ -3,7 +3,7 @@ import { ThemeContext } from "styled-components";
 import {createStackNavigator} from "@react-navigation/stack";
 import MainTab from "./MainTab";
 import BoardScreen from "../screens/Board/BoardScreen";
-import ChatScreen from "../screens/chat/ChatScreen";
+import ChatScreen from "../screens/Board/ChatScreen";
 import FAQScreen from "../screens/mypage/FAQScreen";
 import NoticeListScreen from "../screens/mypage/notice/NoticeListScreen";
 import PersonalInfoScreen from "../screens/mypage/PersonalInfoScreen";

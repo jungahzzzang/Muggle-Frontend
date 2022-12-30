@@ -1,28 +1,32 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
-import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs"
+import { View } from "react-native";
 import NavigationHeader from "../../components/NavigationHeader";
-import { defaultFontText as Text } from "../../components/Text";
+import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
 import GoodsScreen from "./GoodsScreen";
 import BoardScreen from "./BoardScreen";
+import ChatScreen from "./ChatScreen";
 
-const Tab = createMaterialTopTabNavigator();
+const topTab = createMaterialTopTabNavigator();
 
-export default function BoardTab() {
+function BoardTab(){
 
-        return(
-            <SafeAreaView>
-                <Tab.Navigator initialRouteName="Goods">
-                    <Tab.Screen
-                        name="Goods"
-                        component={GoodsScreen}
-                    />
-                    <Tab.Screen
-                    name="Board"
-                    component={BoardScreen}
-                    />
-                </Tab.Navigator>
-            </SafeAreaView>
-       )
-    
+    return(
+        <topTab.Navigator>
+            <topTab.Screen
+                name="굿즈거래소"
+                component={GoodsScreen}
+            />
+            <topTab.Screen
+                name="자유게시판"
+                component={BoardScreen}
+            />
+            <topTab.Screen
+                name="채팅방"
+                component={ChatScreen}
+            />
+
+        </topTab.Navigator>
+    )
 }
+
+export default BoardTab;

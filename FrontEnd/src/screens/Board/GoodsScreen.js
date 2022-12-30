@@ -3,15 +3,15 @@ import { StyleSheet, View, ScrollView} from "react-native";
 import NavigationHeader from "../../components/NavigationHeader";
 import { defaultFontText as Text } from "../../components/Text";
 
-export default class GoodsScreen extends React.Component{
+export default class GoodsScreen extends React.Component {
 
     render(){
         return(
-            <ScrollView>
+            //<ScrollView>
                 <View style={styles.container}>
                     <Text style={{fontSize: 24}}>뮤글 거래소</Text>
                 </View>
-            </ScrollView>
+            //</ScrollView>
         )
     }
 }

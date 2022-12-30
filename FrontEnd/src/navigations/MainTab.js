@@ -6,7 +6,7 @@ import { ThemeContext } from "styled-components";
 import MainScreen from "../screens/main/MainScreen";
 import BoardTab from "../screens/Board/BoardTab";
 import MyPageListScreen from "../screens/mypage/MyPageListScreen";
-import ChatScreen from "../screens/chat/ChatScreen";
+import ChatScreen from "../screens/Board/ChatScreen";
 
 
 Icon.loadFont();
