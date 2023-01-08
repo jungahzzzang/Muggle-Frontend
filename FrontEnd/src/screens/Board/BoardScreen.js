@@ -8,11 +8,10 @@ export default class BoardScreen extends React.Component {
 
     render(){
         return(
-            //<ScrollView>
                 <View style={styles.container}>
+                    <NavigationHeader title={"뮤글 게시판"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
                     <Text style={{fontSize: 24}}>게시판</Text>
-                </View>
-            //</ScrollView>   
+                </View>  
         )
     }
 }

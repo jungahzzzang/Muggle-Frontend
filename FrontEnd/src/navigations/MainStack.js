@@ -3,13 +3,13 @@ import { ThemeContext } from "styled-components";
 import {createStackNavigator} from "@react-navigation/stack";
 import MainTab from "./MainTab";
 import BoardScreen from "../screens/Board/BoardScreen";
-import ChatScreen from "../screens/Board/ChatScreen";
-import FAQScreen from "../screens/mypage/FAQScreen";
+import ChatScreen from "../screens/chat/ChatScreen";
+import FAQScreen from "../screens/mypage/faq/FAQScreen";
 import NoticeListScreen from "../screens/mypage/notice/NoticeListScreen";
-import PersonalInfoScreen from "../screens/mypage/PersonalInfoScreen";
-import ProfileScreen from "../screens/mypage/ProfileScreen";
-import SettingsScreen from "../screens/mypage/SettingsScreen";
-import TermsScreen from "../screens/mypage/TermsScreen";
+import PersonalInfoScreen from "../screens/mypage/personalInfo/PersonalInfoScreen";
+import ProfileScreen from "../screens/mypage/profile/ProfileScreen";
+import SettingsScreen from "../screens/mypage/settings/SettingsScreen";
+import TermsScreen from "../screens/mypage/terms/TermsScreen";
 
 const Stack = createStackNavigator();
 

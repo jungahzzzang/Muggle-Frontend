@@ -3,7 +3,7 @@ import { View } from "react-native";
 import NavigationHeader from "../../components/NavigationHeader";
 import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
 import GoodsScreen from "./GoodsScreen";
-import BoardScreen from "./BoardScreen";
+import BoardScreen from "../Board/BoardScreen";
 import ChatScreen from "./ChatScreen";
 
 const topTab = createMaterialTopTabNavigator();
@@ -11,21 +11,24 @@ const topTab = createMaterialTopTabNavigator();
 function BoardTab(){
 
     return(
-        <topTab.Navigator>
+        <>
+            <NavigationHeader title={"채팅"}/>
+            <topTab.Navigator>
             <topTab.Screen
-                name="굿즈거래소"
+                name="전체"
                 component={GoodsScreen}
             />
             <topTab.Screen
-                name="자유게시판"
+                name="판매"
                 component={BoardScreen}
             />
             <topTab.Screen
-                name="채팅방"
+                name="구매"
                 component={ChatScreen}
             />
 
         </topTab.Navigator>
+        </>
     )
 }
 
