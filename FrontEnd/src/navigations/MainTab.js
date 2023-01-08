@@ -6,7 +6,7 @@ import { ThemeContext } from "styled-components";
 import MainScreen from "../screens/main/MainScreen";
 import BoardTab from "../screens/Board/BoardTab";
 import MyPageListScreen from "../screens/mypage/MyPageListScreen";
-import ChatScreen from "../screens/Board/ChatScreen";
+import ChatScreen from "../screens/Board/GoodsScreen";
 
 
 Icon.loadFont();
@@ -52,6 +52,24 @@ const MainTab = () => {
                     }),
                 }}
             />
+             <Tab.Screen
+                name="뮤글거래소"
+                component={ChatScreen}
+                options={{
+                    headerStyle: {
+                        height: 40
+                    },
+                    headerTitleStyle:{
+                        fontSize: 13
+                    },
+                    headerTintColor: "#1D5349",
+                    tabBarIcon :({ focused }) =>
+                    TabBarIcon({
+                        focused,
+                        name: focused ? 'ticket' : 'ticket-outline',
+                    }),
+                }}
+            />
             <Tab.Screen
                 name="게시판"
                 component={BoardTab}
@@ -70,25 +88,6 @@ const MainTab = () => {
                     }),
                 }}
             />
-            <Tab.Screen
-                name="뮤글거래소"
-                component={ChatScreen}
-                options={{
-                    headerStyle: {
-                        height: 40
-                    },
-                    headerTitleStyle:{
-                        fontSize: 13
-                    },
-                    headerTintColor: "#1D5349",
-                    tabBarIcon :({ focused }) =>
-                    TabBarIcon({
-                        focused,
-                        name: focused ? 'chatbox-ellipses' : 'chatbox-ellipses-outline',
-                    }),
-                }}
-            />
-        
             <Tab.Screen
                 name="마이페이지"
                 component={MyPageListScreen}

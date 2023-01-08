@@ -13,7 +13,7 @@ class MyPageListScreen extends React.Component {
         return (
                 <ScrollView>
                     <View style={styles.container}>
-                        <NavigationHeader title={"마이페이지"} />
+                        <NavigationHeader title={"마이페이지"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
                             <FlatListItem
                                 title={FlatData[0].title}
                                 onPress={() => this.props.navigation.navigate(Routes.Profile)}

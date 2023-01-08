@@ -1,10 +1,13 @@
 import React, {useState} from "react";
 import { StyleSheet, View, LayoutAnimation, SafeAreaView, TouchableOpacity, FlatList } from "react-native";
 import { defaultFontText as Text } from "../../../components/Text";
+import {useNavigation} from "@react-navigation/core";
 import NavigationHeader from "../../../components/NavigationHeader";
 import Icon from "react-native-vector-icons/Ionicons"
 import { NoticeData } from "../../../assets/json/FlatData";
 import NoticeAccordian from "./NoticeAccordian";
+
+const navigation = useNavigation();
 
 export default class NoticeListScreen extends React.Component{
 
@@ -13,7 +16,7 @@ export default class NoticeListScreen extends React.Component{
       return(
         <View style={styles.container}>
           <SafeAreaView>
-            <NavigationHeader title={"뮤글 공지사항"} />
+            <NavigationHeader title={"뮤글 공지사항"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
               <View style={styles.list}>
                   <FlatList
                     data={NoticeData}

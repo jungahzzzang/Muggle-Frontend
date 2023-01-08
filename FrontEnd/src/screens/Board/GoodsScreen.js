@@ -7,11 +7,10 @@ export default class GoodsScreen extends React.Component {
 
     render(){
         return(
-            //<ScrollView>
                 <View style={styles.container}>
+                    <NavigationHeader title={"뮤글 거래소"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()} rightIcon rightIconName={"chatbox-ellipses-outline"} rightIconName2={"search-outline"}/>
                     <Text style={{fontSize: 24}}>뮤글 거래소</Text>
                 </View>
-            //</ScrollView>
         )
     }
 }
