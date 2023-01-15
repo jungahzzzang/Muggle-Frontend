@@ -359,7 +359,7 @@ PODS:
     - React-perflogger (= 0.68.2)
   - RNCMaskedView (0.1.11):
     - React
-  - RNGestureHandler (2.8.0):
+  - RNGestureHandler (2.9.0):
     - React-Core
   - RNReanimated (1.13.4):
     - React-Core
@@ -584,7 +584,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: b960b687d2dfef0d3761fbb187e01812ebab8b23
   ReactCommon: 095366164a276d91ea704ce53cb03825c487a3f2
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
-  RNGestureHandler: 62232ba8f562f7dea5ba1b3383494eb5bf97a4d3
+  RNGestureHandler: 071d7a9ad81e8b83fe7663b303d132406a7d8f39
   RNReanimated: c1b56d030d1616239861534d9adb531f8cffab68
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   RNVectorIcons: fcc2f6cb32f5735b586e66d14103a74ce6ad61f8

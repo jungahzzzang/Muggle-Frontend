@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 import NavigationHeader from "../../components/NavigationHeader";
 import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
 import GoodsScreen from "./GoodsScreen";

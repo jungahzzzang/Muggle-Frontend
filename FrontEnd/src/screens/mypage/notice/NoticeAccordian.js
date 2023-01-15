@@ -1,5 +1,5 @@
-import React, {useState, useCallback} from "react";
-import { View, FlatList, LayoutAnimation, TouchableOpacity, StyleSheet } from "react-native";
+import React, {useState} from "react";
+import { View, TouchableOpacity, StyleSheet } from "react-native";
 import { defaultFontText as Text } from "../../../components/Text";
 import Icon from "react-native-vector-icons/Ionicons"
 import { NoticeData } from "../../../assets/json/FlatData";

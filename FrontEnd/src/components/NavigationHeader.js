@@ -5,10 +5,8 @@ import {useNavigation, useRoute} from "@react-navigation/core";
 import Icon from "react-native-vector-icons/Ionicons"
 import { defaultFontText as Text } from "../components/Text";
 
-Icon.loadFont();
-
 //네비게이션 헤더 생성
-const NavigationHeader = ({title, leftIcon, leftIconName, rightIcon, rightIconName, rightIconName2, onPressLeft, onPressRight}) => {
+const NavigationHeader = ({title, leftIcon, leftIconName, rightIcon, rightIconName, rightIconName2, onPressLeft, onPressRight, onPressRight2}) => {
 
   const navigation = useNavigation();
 
@@ -27,6 +25,8 @@ const NavigationHeader = ({title, leftIcon, leftIconName, rightIcon, rightIconNa
           (<View style={styles.right}>
             <TouchableOpacity onPress={onPressRight}>
               <Icon name={rightIconName} style={styles.rightIcon1} size={24}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={onPressRight2}>
               <Icon name={rightIconName2} style={styles.rightIcon2} size={24}/>
             </TouchableOpacity>
           </View> ) :null
@@ -54,6 +54,8 @@ const NavigationHeader = ({title, leftIcon, leftIconName, rightIcon, rightIconNa
             (<View style={styles.right}>
             <TouchableOpacity onPress={onPressRight} >
               <Icon name={rightIconName} style={styles.rightIcon1} size={24}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={onPressRight2}>
               <Icon name={rightIconName2} style={styles.rightIcon2} size={24}/>
             </TouchableOpacity>
             </View> ) : null

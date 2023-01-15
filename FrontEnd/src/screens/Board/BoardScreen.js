@@ -1,19 +1,18 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, SafeAreaView } from "react-native";
 import NavigationHeader from "../../components/NavigationHeader";
 import { defaultFontText as Text } from "../../components/Text";
 
-//export default BoardScreen = () =>{ 
-export default class BoardScreen extends React.Component {
+const BoardScreen = () =>{ 
 
-    render(){
-        return(
-                <View style={styles.container}>
-                    <NavigationHeader title={"뮤글 게시판"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
-                    <Text style={{fontSize: 24}}>게시판</Text>
-                </View>  
-        )
-    }
+    return(
+        <SafeAreaView>
+             <View style={styles.container}>
+                <NavigationHeader title={"뮤글 게시판"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
+                <Text style={{fontSize: 24}}>게시판</Text>
+            </View>  
+        </SafeAreaView>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -22,4 +21,4 @@ const styles = StyleSheet.create({
     }
 })
 
-//export default BoardScreen;
+export default BoardScreen;

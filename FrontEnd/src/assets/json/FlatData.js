@@ -51,3 +51,33 @@ export const NoticeData = [
         body: '공지사항 4입니다.'
     }    
 ]
+
+export const GoodsData = [
+    {
+        key: 1,
+        itemTitle: '굿즈1 나눔합니다.',
+        itemPrice: '무료 나눔',
+        itemDetail: '굿즈 설명1',
+        heartClick: false,
+        img: require('../goods/goods_sample1.jpeg'),
+        mkType: 'onsale',
+    },
+    {
+        key: 2,
+        itemTitle: '굿즈2 양도합니다.',
+        itemPrice: '10,000',
+        itemDetail: '굿즈 설명2',
+        heartClick: false,
+        img: require('../goods/goods_sample2.jpeg'),
+        mkType: 'onsale',
+    },
+    {
+        key: 3,
+        itemTitle: '굿즈3 양도합니다.',
+        itemPrice: '20,000',
+        itemDetail: '굿즈 설명3',
+        heartClick: false,
+        img: require('../goods/goods_sample3.jpeg'),
+        mkType: 'onsale',
+    }
+]
