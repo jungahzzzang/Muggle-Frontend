@@ -6,7 +6,7 @@ import { ThemeContext } from "styled-components";
 import MainScreen from "../screens/main/MainScreen";
 import BoardScreen from "../screens/Board/BoardScreen";
 import MyPageListScreen from "../screens/mypage/MyPageListScreen";
-import ChatScreen from "../screens/chat/GoodsScreen";
+import GoodsScreen from "../screens/chat/GoodsScreen";
 
 
 Icon.loadFont();
@@ -54,7 +54,7 @@ const MainTab = () => {
             />
              <Tab.Screen
                 name="뮤글거래소"
-                component={ChatScreen}
+                component={GoodsScreen}
                 options={{
                     headerStyle: {
                         height: 40

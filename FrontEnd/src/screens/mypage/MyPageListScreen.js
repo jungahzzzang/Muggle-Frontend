@@ -6,51 +6,40 @@ import FlatListItem from "../../components/FlatListItem";
 import {FlatData} from "../../assets/json/FlatData";
 import Routes from "../../navigations/Routes";
 
-class MyPageListScreen extends React.Component {
-
-    render(){
-
-        return (
-                <ScrollView>
-                    <View style={styles.container}>
-                        <NavigationHeader title={"마이페이지"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
-                            <FlatListItem
-                                title={FlatData[0].title}
-                                onPress={() => this.props.navigation.navigate(Routes.Profile)}
-                            />
-                            <FlatListItem
-                                title={FlatData[1].title}
-                                onPress={() => this.props.navigation.navigate(Routes.NoticeList)}
-                            />
-                            <FlatListItem
-                                title={FlatData[2].title}
-                                onPress={() => this.props.navigation.navigate(Routes.Settings)}
-                            />
-                            <FlatListItem
-                                title={FlatData[3].title}
-                                onPress={() => this.props.navigation.navigate(Routes.FAQ)}
-                            />
-                            <FlatListItem
-                                title={FlatData[4].title}
-                                onPress={() => this.props.navigation.navigate(Routes.PersonalInfo)}
-                            />
-                            <FlatListItem
-                                title={FlatData[5].title}
-                                onPress={() => this.props.navigation.navigate(Routes.Terms)}
-                            />
-                    </View>
-                </ScrollView>
-        )
-    }
-
-}
-
-function Item({ item, navigate }) {
+const MyPageListScreen = () => {
+    
     return (
-        <TouchableOpacity style={styles.list} onPress = {() => navigate(item.name)}>
-            <Text style={styles.title}>{item.title}</Text>
-        </TouchableOpacity>
-    );
+            <ScrollView>
+                <View style={styles.container}>
+                    <NavigationHeader title={"마이페이지"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
+                        <FlatListItem
+                            title={FlatData[0].title}
+                            onPress={() => this.props.navigation.navigate(Routes.Profile)}
+                        />
+                        <FlatListItem
+                            title={FlatData[1].title}
+                            onPress={() => this.props.navigation.navigate(Routes.NoticeList)}
+                        />
+                        <FlatListItem
+                            title={FlatData[2].title}
+                            onPress={() => this.props.navigation.navigate(Routes.Settings)}
+                        />
+                        <FlatListItem
+                            title={FlatData[3].title}
+                            onPress={() => this.props.navigation.navigate(Routes.FAQ)}
+                        />
+                        <FlatListItem
+                            title={FlatData[4].title}
+                            onPress={() => this.props.navigation.navigate(Routes.PersonalInfo)}
+                        />
+                        <FlatListItem
+                            title={FlatData[5].title}
+                            onPress={() => this.props.navigation.navigate(Routes.Terms)}
+                        />
+                </View>
+            </ScrollView>
+    )
+
 }
 
 const styles = StyleSheet.create({

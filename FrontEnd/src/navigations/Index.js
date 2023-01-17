@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import {NavigationContainer} from "@react-navigation/native";
-import {View, Text} from "react-native";
 import MainStack from "./MainStack";
 
 const Navigation = () => {

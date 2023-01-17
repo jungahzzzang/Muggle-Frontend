@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import { StyleSheet, View, LayoutAnimation, SafeAreaView, TouchableOpacity, FlatList } from "react-native";
-import { defaultFontText as Text } from "../../../components/Text";
 import {useNavigation} from "@react-navigation/core";
 import NavigationHeader from "../../../components/NavigationHeader";
 import { NoticeData } from "../../../assets/json/FlatData";

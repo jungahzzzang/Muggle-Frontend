@@ -11,25 +11,23 @@ const images = [
     require("../../assets/banner/banner_sample3.png"),
 ];
 
-class MainScreen extends React.Component {
+const MainScreen = () => {
 
-    render(){
-        return(
-            <View style={styles.container}>
-                <SafeAreaView>
-                    <NavigationHeader title={"뮤글"} />
-                        <SliderBox
-                                images={images}
-                                autoplay={true} //자동 슬라이더 넘김
-                                circleLoop={true}   //맨끝 슬라이드에서 다시 첫 슬라이드로
-                                //onCurrentImagePressed={index => alert(`image ${index} pressed`)}
-                                ImageComponentStyle={{width: wp('100%'), height: hp('25%'), marginTop: 10}}    //이미지 Style 적용
-                                resizeMode="cover"
-                            />
-                </SafeAreaView>
-            </View>
-        )
-    }
+    return(
+        <View style={styles.container}>
+            <SafeAreaView>
+                <NavigationHeader title={"뮤글"} />
+                    <SliderBox
+                            images={images}
+                            autoplay={true} //자동 슬라이더 넘김
+                            circleLoop={true}   //맨끝 슬라이드에서 다시 첫 슬라이드로
+                            //onCurrentImagePressed={index => alert(`image ${index} pressed`)}
+                            ImageComponentStyle={{width: wp('100%'), height: hp('25%'), marginTop: 10}}    //이미지 Style 적용
+                            resizeMode="cover"
+                        />
+            </SafeAreaView>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
