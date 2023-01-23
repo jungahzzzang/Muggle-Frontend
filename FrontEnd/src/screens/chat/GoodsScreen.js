@@ -1,18 +1,21 @@
 import React, {useState} from "react";
 import { StyleSheet, View, ScrollView, SafeAreaView, FlatList, TouchableOpacity, Image} from "react-native";
+import {useNavigation} from "@react-navigation/core";
 import Icon from "react-native-vector-icons/Ionicons"
 import NavigationHeader from "../../components/NavigationHeader";
 import { defaultFontText as Text } from "../../components/Text";
 import { GoodsData } from "../../assets/json/FlatData";
 import Routes from "../../navigations/Routes";
 
+const navigation = useNavigation();
+
 const GoodsScreen = () => {
 
     const [heart, setHeart] = useState(false);
 
     return(
-        <SafeAreaView>
-            <View style={styles.wrap}>
+        <View style={styles.wrap}>
+             <SafeAreaView>
                 <NavigationHeader title={"뮤글 거래소"}
                                   leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}
                                   rightIcon rightIconName={"chatbox-ellipses-outline"} onPressRight={() => navigation.navigate("Chat")}
@@ -36,8 +39,9 @@ const GoodsScreen = () => {
                     )}
                     keyExtractor={(item,index) => index.toString()}
                 />
-            </View>
-        </SafeAreaView>
+            </SafeAreaView>
+        </View>
+        
     )
 }
 

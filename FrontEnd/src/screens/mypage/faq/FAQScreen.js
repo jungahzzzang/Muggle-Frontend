@@ -1,7 +1,10 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import {useNavigation} from "@react-navigation/core";
 import { defaultFontText as Text } from "../../../components/Text";
 import NavigationHeader from "../../../components/NavigationHeader";
+
+const navigation = useNavigation();
 
 const FAQScreen = () => {
     return(

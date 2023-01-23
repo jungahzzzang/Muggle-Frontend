@@ -1,10 +1,13 @@
 import React from "react";
 import {StyleSheet, View, TouchableOpacity, ScrollView} from "react-native";
+import {useNavigation} from "@react-navigation/core";
 import { defaultFontText as Text } from "../../components/Text";
 import NavigationHeader from "../../components/NavigationHeader";
 import FlatListItem from "../../components/FlatListItem";
 import {FlatData} from "../../assets/json/FlatData";
 import Routes from "../../navigations/Routes";
+
+const navigation = useNavigation();
 
 const MyPageListScreen = () => {
     
