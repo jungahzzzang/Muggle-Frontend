@@ -35,7 +35,7 @@ const MyPageListScreen = () => {
                         />
                         <FlatListItem
                             title={MyPageListData[5].title}
-                            onPress={() => this.props.navigation.navigate(Routes.Terms)}
+                            onPress={() => navigation.navigate(Routes.Terms)}
                         />
                 </View>
             </ScrollView>

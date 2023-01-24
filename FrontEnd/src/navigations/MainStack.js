@@ -11,6 +11,9 @@ import PersonalInfoScreen from "../screens/mypage/personalInfo/PersonalInfoScree
 import ProfileScreen from "../screens/mypage/profile/ProfileScreen";
 import SettingsScreen from "../screens/mypage/settings/SettingsScreen";
 import TermsScreen from "../screens/mypage/terms/TermsScreen";
+import ChatListScreen from "../screens/chat/ChatListScreen";
+import BuyChatScreen from "../screens/chat/BuyChatScreen";
+import SaleChatScreen from "../screens/chat/SaleChatScreen";
 
 const Stack = createStackNavigator();
 
@@ -39,6 +42,10 @@ const MainStack = () => {
             <Stack.Screen name="Profile" component={ProfileScreen} />
             <Stack.Screen name="Settings" component={SettingsScreen} />
             <Stack.Screen name="Terms" component={TermsScreen} />
+
+            <Stack.Screen name="ChatList" component={ChatListScreen} />
+            <Stack.Screen name="BuyChat" component={BuyChatScreen} />
+            <Stack.Screen name="SaleChat" component={SaleChatScreen} />
         </Stack.Navigator>
     )
 }

@@ -1,12 +1,20 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, SafeAreaView} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { defaultFontText as Text } from "../../../components/Text";
+import NavigationHeader from "../../../components/NavigationHeader";
 
 const TermsScreen = () => {
 
+    const navigation = useNavigation();
+
     return (
-        <View>
-            <Text>이용약관</Text>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <NavigationHeader title={"뮤글 이용약관"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
+            <View>
+                <Text>이용약관</Text>
+            </View>
+        </SafeAreaView>
     )
 }
 

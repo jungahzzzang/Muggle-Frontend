@@ -13,20 +13,20 @@ const NavigationHeader = ({title, leftIcon, leftIconName, rightIcon, rightIconNa
     return (
       <View style={styles.container}>
         {(navigation) ?
-          (<View style={styles.left}>
+          (<View style={styles.leftContainer}>
             <TouchableOpacity onPress={onPressLeft}>
               <Icon name={leftIconName} size={24}/>
             </TouchableOpacity>
           </View> ) : null
         }
-          <Text style={[styles.title, {marginRight: 14}]}>{title}</Text>
+          <Text style={styles.middleContainer}>{title}</Text>
         {(navigation) ?
-          (<View style={styles.right}>
+          (<View style={styles.rightContainer}>
             <TouchableOpacity onPress={onPressRight}>
-              <Icon name={rightIconName} style={styles.rightIcon1} size={24}/>
+              <Icon name={rightIconName} style={styles.rightIcon} size={24}/>
             </TouchableOpacity>
             <TouchableOpacity onPress={onPressRight2}>
-              <Icon name={rightIconName2} style={styles.rightIcon2} size={24}/>
+              <Icon name={rightIconName2} style={styles.rightIcon} size={24}/>
             </TouchableOpacity>
           </View> ) :null
         }
@@ -36,26 +36,26 @@ const NavigationHeader = ({title, leftIcon, leftIconName, rightIcon, rightIconNa
     return (
       <View style={styles.container}>
         {(navigation) ?
-          (<View style={styles.left}>
+          (<View style={styles.leftContainer}>
             <TouchableOpacity onPress={onPressLeft}>
               <Icon name={leftIconName} size={24}/>
             </TouchableOpacity>
            </View> ) : null
         }
-        <Text style={[styles.title, { marginRight: 14 }]}>{title}</Text>
+        <Text style={styles.middleContainer}>{title}</Text>
       </View>
     )
   }else if(rightIcon){
     return (
       <View style={styles.container}>
-        <Text style={[styles.title, { marginLeft: 14 }]}>{title}</Text>
+        <Text style={styles.middleContainer}>{title}</Text>
         {(navigation) ?
-            (<View style={styles.right}>
+            (<View style={styles.rightContainer}>
             <TouchableOpacity onPress={onPressRight} >
-              <Icon name={rightIconName} style={styles.rightIcon1} size={24}/>
+              <Icon name={rightIconName} style={styles.rightIcon} size={24}/>
             </TouchableOpacity>
             <TouchableOpacity onPress={onPressRight2}>
-              <Icon name={rightIconName2} style={styles.rightIcon2} size={24}/>
+              <Icon name={rightIconName2} style={styles.rightIcon} size={24}/>
             </TouchableOpacity>
             </View> ) : null
         }
@@ -74,11 +74,28 @@ const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'space-between',
       padding: 15,
       marginBottom: 15,
       borderBottomWidth:1,
       borderBottomColor:"#eee"
+    },
+    leftContainer: {
+      justifyContent: 'flex-start',
+      flexDirection: 'row',
+    }, 
+    rightContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+    },
+    middleContainer: {
+      flex: 2,
+      flexDirection: 'row',
+      marginLeft: 10,
+      marginRight: 10,
+      fontSize: 16,
     },
     title: {
       flex: 1,
@@ -100,11 +117,9 @@ const styles = StyleSheet.create({
       height: 50,
       justifyContent: "center"
     },
-    rightIcon1: {
-      justifyContent: 'flex-start'
-    },
-    rightIcon2: {
-      justifyContent: 'flex-end'
+    rightIcon: {
+      paddingHorizontal: 20,
+      resizeMode: 'contain',
     },
     iconBack: {
       fontSize: 16,

@@ -1,12 +1,20 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, SafeAreaView} from "react-native";
+import {useNavigation} from "@react-navigation/native";
+import { defaultFontText as Text } from "../../../components/Text";
+import NavigationHeader from "../../../components/NavigationHeader";
 
 const FAQScreen = () => {
 
+    const navigation = useNavigation();
+
     return (
-        <View>
-            <Text>FAQ</Text>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <NavigationHeader title={"자주묻는질문"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
+            <View>
+                <Text>FAQ</Text>
+            </View>
+        </SafeAreaView>
     )
 }
 
