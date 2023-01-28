@@ -10,7 +10,8 @@ const BoardScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <View>
-            <NavigationHeader title={"뮤글 거래소"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
+            <NavigationHeader title={"뮤글 게시판"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}
+                              rightIcon rightIconName={"pencil-outline"} onPressRight={() => navigation.navigate("Write")}/>
                 <Text>게시판게시판</Text>
             </View>
         </SafeAreaView>
