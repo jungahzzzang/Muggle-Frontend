@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, SafeAreaView } from "react-native";
 import { useNavigation} from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import NavigationHeader from "../../components/NavigationHeader";
+import NavigationHeader from "../../../components/NavigationHeader";
 import ChatListScreen from "./ChatListScreen";
 import BuyChatScreen from "./BuyChatScreen";
 import SaleChatScreen from "./SaleChatScreen";

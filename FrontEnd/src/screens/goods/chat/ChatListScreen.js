@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, View, SafeAreaView } from "react-native";
-import { defaultFontText as Text } from "../../components/Text";
+import { defaultFontText as Text } from "../../../components/Text";
 
-const BuyChatScreen = () => {
+const ChatListScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
             <View>
-                <Text>구매 채팅방</Text>
+                <Text>전체 채팅방</Text>
             </View>
         </SafeAreaView>
     )
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default BuyChatScreen;
+export default ChatListScreen;
