@@ -9,13 +9,12 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* FrontEndTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FrontEndTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-FrontEnd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-FrontEnd.a */; };
-		124B1CA4292A250200636C4A /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 124B1CA3292A250200636C4A /* fonts */; };
-		124B1CAB292A46BF00636C4A /* Galmuri7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 124B1CA5292A46BF00636C4A /* Galmuri7.ttf */; };
-		124B1CAC292A46BF00636C4A /* Galmuri9.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 124B1CA6292A46BF00636C4A /* Galmuri9.ttf */; };
-		124B1CAD292A46BF00636C4A /* Galmuri11-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 124B1CA7292A46BF00636C4A /* Galmuri11-Bold.ttf */; };
-		124B1CAE292A46BF00636C4A /* Galmuri11.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 124B1CA8292A46BF00636C4A /* Galmuri11.ttf */; };
-		124B1CAF292A46BF00636C4A /* Galmuri11-Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 124B1CA9292A46BF00636C4A /* Galmuri11-Condensed.ttf */; };
-		124B1CB0292A46BF00636C4A /* Galmuri14.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 124B1CAA292A46BF00636C4A /* Galmuri14.ttf */; };
+		12BB9EB5297E9B710065BA94 /* Galmuri7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12BB9EAF297E9B710065BA94 /* Galmuri7.ttf */; };
+		12BB9EB6297E9B710065BA94 /* Galmuri14.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12BB9EB0297E9B710065BA94 /* Galmuri14.ttf */; };
+		12BB9EB7297E9B710065BA94 /* Galmuri9.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12BB9EB1297E9B710065BA94 /* Galmuri9.ttf */; };
+		12BB9EB8297E9B710065BA94 /* Galmuri11.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12BB9EB2297E9B710065BA94 /* Galmuri11.ttf */; };
+		12BB9EB9297E9B710065BA94 /* Galmuri11-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12BB9EB3297E9B710065BA94 /* Galmuri11-Bold.ttf */; };
+		12BB9EBA297E9B710065BA94 /* Galmuri11-Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12BB9EB4297E9B710065BA94 /* Galmuri11-Condensed.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -33,29 +32,17 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		124B1CB1292A471A00636C4A /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 7;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* FrontEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrontEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* FrontEndTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrontEndTests.m; sourceTree = "<group>"; };
-		124B1CA3292A250200636C4A /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
-		124B1CA5292A46BF00636C4A /* Galmuri7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Galmuri7.ttf; path = fonts/Galmuri7.ttf; sourceTree = "<group>"; };
-		124B1CA6292A46BF00636C4A /* Galmuri9.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Galmuri9.ttf; path = fonts/Galmuri9.ttf; sourceTree = "<group>"; };
-		124B1CA7292A46BF00636C4A /* Galmuri11-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Galmuri11-Bold.ttf"; path = "fonts/Galmuri11-Bold.ttf"; sourceTree = "<group>"; };
-		124B1CA8292A46BF00636C4A /* Galmuri11.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Galmuri11.ttf; path = fonts/Galmuri11.ttf; sourceTree = "<group>"; };
-		124B1CA9292A46BF00636C4A /* Galmuri11-Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Galmuri11-Condensed.ttf"; path = "fonts/Galmuri11-Condensed.ttf"; sourceTree = "<group>"; };
-		124B1CAA292A46BF00636C4A /* Galmuri14.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Galmuri14.ttf; path = fonts/Galmuri14.ttf; sourceTree = "<group>"; };
+		12BB9EAD297E861D0065BA94 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		12BB9EAF297E9B710065BA94 /* Galmuri7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Galmuri7.ttf; path = fonts/Galmuri7.ttf; sourceTree = "<group>"; };
+		12BB9EB0297E9B710065BA94 /* Galmuri14.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Galmuri14.ttf; path = fonts/Galmuri14.ttf; sourceTree = "<group>"; };
+		12BB9EB1297E9B710065BA94 /* Galmuri9.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Galmuri9.ttf; path = fonts/Galmuri9.ttf; sourceTree = "<group>"; };
+		12BB9EB2297E9B710065BA94 /* Galmuri11.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Galmuri11.ttf; path = fonts/Galmuri11.ttf; sourceTree = "<group>"; };
+		12BB9EB3297E9B710065BA94 /* Galmuri11-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Galmuri11-Bold.ttf"; path = "fonts/Galmuri11-Bold.ttf"; sourceTree = "<group>"; };
+		12BB9EB4297E9B710065BA94 /* Galmuri11-Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Galmuri11-Condensed.ttf"; path = "fonts/Galmuri11-Condensed.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* FrontEnd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrontEnd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FrontEnd/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = FrontEnd/AppDelegate.mm; sourceTree = "<group>"; };
@@ -142,13 +129,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				124B1CA5292A46BF00636C4A /* Galmuri7.ttf */,
-				124B1CA6292A46BF00636C4A /* Galmuri9.ttf */,
-				124B1CA7292A46BF00636C4A /* Galmuri11-Bold.ttf */,
-				124B1CA9292A46BF00636C4A /* Galmuri11-Condensed.ttf */,
-				124B1CA8292A46BF00636C4A /* Galmuri11.ttf */,
-				124B1CAA292A46BF00636C4A /* Galmuri14.ttf */,
-				124B1CA3292A250200636C4A /* fonts */,
+				12BB9EAF297E9B710065BA94 /* Galmuri7.ttf */,
+				12BB9EB1297E9B710065BA94 /* Galmuri9.ttf */,
+				12BB9EB3297E9B710065BA94 /* Galmuri11-Bold.ttf */,
+				12BB9EB4297E9B710065BA94 /* Galmuri11-Condensed.ttf */,
+				12BB9EB2297E9B710065BA94 /* Galmuri11.ttf */,
+				12BB9EB0297E9B710065BA94 /* Galmuri14.ttf */,
+				12BB9EAD297E861D0065BA94 /* fonts */,
 				13B07FAE1A68108700A75B9A /* FrontEnd */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* FrontEndTests */,
@@ -217,7 +204,6 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
-				124B1CB1292A471A00636C4A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -234,7 +220,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -276,13 +262,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				124B1CAB292A46BF00636C4A /* Galmuri7.ttf in Resources */,
-				124B1CAC292A46BF00636C4A /* Galmuri9.ttf in Resources */,
-				124B1CAD292A46BF00636C4A /* Galmuri11-Bold.ttf in Resources */,
-				124B1CAE292A46BF00636C4A /* Galmuri11.ttf in Resources */,
-				124B1CAF292A46BF00636C4A /* Galmuri11-Condensed.ttf in Resources */,
-				124B1CB0292A46BF00636C4A /* Galmuri14.ttf in Resources */,
-				124B1CA4292A250200636C4A /* fonts in Resources */,
+				12BB9EB5297E9B710065BA94 /* Galmuri7.ttf in Resources */,
+				12BB9EB6297E9B710065BA94 /* Galmuri14.ttf in Resources */,
+				12BB9EB7297E9B710065BA94 /* Galmuri9.ttf in Resources */,
+				12BB9EB8297E9B710065BA94 /* Galmuri11.ttf in Resources */,
+				12BB9EB9297E9B710065BA94 /* Galmuri11-Bold.ttf in Resources */,
+				12BB9EBA297E9B710065BA94 /* Galmuri11-Condensed.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -297,13 +282,15 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
 			);
 			name = "Bundle React Native code and images";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
 		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -471,14 +458,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-FrontEnd-FrontEndTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = FrontEndTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,11 +485,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-FrontEnd-FrontEndTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = FrontEndTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,6 +518,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -558,6 +544,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -603,7 +590,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -619,8 +606,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = FrontEnd/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -638,6 +624,7 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -675,7 +662,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -684,8 +671,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = FrontEnd/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -702,6 +688,7 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

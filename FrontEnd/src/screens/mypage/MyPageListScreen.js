@@ -1,46 +1,46 @@
-import React, {useState} from "react";
-import {FlatList, StyleSheet, View, TouchableOpacity} from "react-native";
-import { defaultFontText as Text } from "../../components/Text";
+import React from "react";
+import {StyleSheet, View, TouchableOpacity, ScrollView, FlatList} from "react-native";
+import {useNavigation} from "@react-navigation/native";
 import NavigationHeader from "../../components/NavigationHeader";
+import FlatListItem from "../../components/FlatListItem";
+import Routes from "../../navigations/Routes";
+import {MyPageListData} from "../../assets/json/FlatData";
 
-class MyPageListScreen extends React.Component {
+const MyPageListScreen = () => {
+    const navigation = useNavigation();
 
-    state  = {
-        routes: [
-            {title: '계정관리', name: 'ProfileScreen'},
-            {title: '공지사항', name: 'NoticeListScreen'},
-            {title: '앱 설정', name: 'SettingsScreen'},
-            {title: '자주 묻는 질문', name: 'FAQScreen'},
-            {title: '개인정보처리방침', name: 'PersonalInfoScreen'},
-            {title: '서비스 이용약관', name: 'TermsScreen'},
-        ]
-    };
-
-    render(){
-        return (
+    return (
+            <ScrollView>
                 <View style={styles.container}>
-                    <NavigationHeader title={"마이페이지"} navigation={this.props.navigation}/>
-                        <FlatList
-                            data={this.state.routes}
-                            renderItem={({item}) => 
-                                <Item
-                                    item={item}
-                                    navigate={this.props.navigation.navigate}
-                                />
-                            }
-                            keyExtractor={item => item.name}
+                    <NavigationHeader title={"마이페이지"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
+                    <FlatListItem
+                            title={MyPageListData[0].title}
+                            onPress={() => navigation.navigate(Routes.Profile)}
+                        />
+                        <FlatListItem
+                            title={MyPageListData[1].title}
+                            onPress={() => navigation.navigate(Routes.NoticeList)}
+                        />
+                        <FlatListItem
+                            title={MyPageListData[2].title}
+                            onPress={() => navigation.navigate(Routes.Settings)}
+                        />
+                        <FlatListItem
+                            title={MyPageListData[3].title}
+                            onPress={() => navigation.navigate(Routes.FAQ)}
+                        />
+                        <FlatListItem
+                            title={MyPageListData[4].title}
+                            onPress={() => navigation.navigate(Routes.PersonalInfo)}
+                        />
+                        <FlatListItem
+                            title={MyPageListData[5].title}
+                            onPress={() => navigation.navigate(Routes.Terms)}
                         />
                 </View>
-        )
-    }
-}
+            </ScrollView>
+    )
 
-function Item({ item, navigate }) {
-    return (
-        <TouchableOpacity style={styles.list} onPress = {() => navigate(item.name)}>
-            <Text style={styles.title}>{item.title}</Text>
-        </TouchableOpacity>
-    );
 }
 
 const styles = StyleSheet.create({
@@ -57,10 +57,10 @@ const styles = StyleSheet.create({
         borderBottomColor: "#eee"
     },
     title: {
+        textAlign: 'center',
         fontSize: 17,
         paddingBottom: 5
     },
 })
 
 export default MyPageListScreen;
-    

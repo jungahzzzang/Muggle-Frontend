@@ -1,14 +1,14 @@
 import React, {useContext} from "react";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from "react-native-vector-icons/Ionicons"
+import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import { ThemeContext } from "styled-components";
 //각 페이지
 import MainScreen from "../screens/main/MainScreen";
-import BoardScreen from "../screens/Board/BoardScreen";
+import BoardScreen from "../screens/board/BoardScreen";
 import MyPageListScreen from "../screens/mypage/MyPageListScreen";
-import ChatScreen from "../screens/chat/ChatScreen";
-
-Icon.loadFont();
+import GoodsScreen from "../screens/goods/GoodsScreen";
+import TheaterSearchScreen from "../screens/theater/TheaterSearchScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,6 +17,17 @@ const TabBarIcon = ({focused, name}) => {
     return(
         <Icon
             name={name}
+            size={26}
+            color={focused ? theme.tabActiveColor : theme.tabInactiveColor}
+        />
+    );
+};
+
+const TabBarIcon2 = ({focused, name}) => {
+    const theme = useContext(ThemeContext);
+    return(
+        <FontAwesomeIcon
+            icon={name}
             size={26}
             color={focused ? theme.tabActiveColor : theme.tabInactiveColor}
         />
@@ -43,11 +54,47 @@ const MainTab = () => {
                         fontSize: 13
                     },
                     headerTintColor: "#1D5349",
-                    //headerShown: false,
+                    headerShown: false,
                     tabBarIcon :({ focused }) =>
                     TabBarIcon({
                         focused,
                         name: focused ? 'home' : 'home-outline',
+                    }),
+                }}
+            />
+            <Tab.Screen
+                name="뮤글 공연장"
+                component={TheaterSearchScreen}
+                options={{
+                    headerStyle: {
+                        height: 40
+                    },
+                    headerTitleStyle:{
+                        fontSize: 13
+                    },
+                    headerTintColor: "#1D5349",
+                    tabBarIcon :({ focused }) =>
+                    TabBarIcon2({
+                        focused,
+                        name: focused ? "theater-masks" : 'theater-masks-outline',
+                    }),
+                }}
+            />
+             <Tab.Screen
+                name="뮤글거래소"
+                component={GoodsScreen}
+                options={{
+                    headerStyle: {
+                        height: 40
+                    },
+                    headerTitleStyle:{
+                        fontSize: 13
+                    },
+                    headerTintColor: "#1D5349",
+                    tabBarIcon :({ focused }) =>
+                    TabBarIcon({
+                        focused,
+                        name: focused ? 'ticket' : 'ticket-outline',
                     }),
                 }}
             />
@@ -69,25 +116,6 @@ const MainTab = () => {
                     }),
                 }}
             />
-            <Tab.Screen
-                name="뮤글 거래소"
-                component={ChatScreen}
-                options={{
-                    headerStyle: {
-                        height: 40
-                    },
-                    headerTitleStyle:{
-                        fontSize: 13
-                    },
-                    headerTintColor: "#1D5349",
-                    tabBarIcon :({ focused }) =>
-                    TabBarIcon({
-                        focused,
-                        name: focused ? 'chatbox-ellipses' : 'chatbox-ellipses-outline',
-                    }),
-                }}
-            />
-        
             <Tab.Screen
                 name="마이페이지"
                 component={MyPageListScreen}
