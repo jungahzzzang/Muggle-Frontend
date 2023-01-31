@@ -3,6 +3,7 @@ import { StyleSheet, View, SafeAreaView, Text } from "react-native";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen";
 import {SliderBox} from "react-native-image-slider-box";
 import NavigationHeader from "../../components/NavigationHeader";
+import SearchBar from "../../components/SearchBar";
 
 const images = [
     require("../../assets/banner/banner_sample1.png"),
@@ -16,6 +17,7 @@ const MainScreen = () => {
         <View style={styles.container}>
             <SafeAreaView>
                 <NavigationHeader title={"뮤글"} />
+                <SearchBar placeholder={"찾으시는 극장명을 입력해 주세요."}/>
                     <SliderBox
                             images={images}
                             autoplay={true} //자동 슬라이더 넘김
