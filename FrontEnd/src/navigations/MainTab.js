@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from "react-native-vector-icons/Ionicons"
-import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { ThemeContext } from "styled-components";
 //각 페이지
 import MainScreen from "../screens/main/MainScreen";
@@ -26,7 +26,7 @@ const TabBarIcon = ({focused, name}) => {
 const TabBarIcon2 = ({focused, name}) => {
     const theme = useContext(ThemeContext);
     return(
-        <FontAwesomeIcon
+        <FontAwesome5
             icon={name}
             size={26}
             color={focused ? theme.tabActiveColor : theme.tabInactiveColor}
@@ -56,9 +56,9 @@ const MainTab = () => {
                     headerTintColor: "#1D5349",
                     headerShown: false,
                     tabBarIcon :({ focused }) =>
-                    TabBarIcon({
+                    TabBarIcon2({
                         focused,
-                        name: focused ? 'home' : 'home-outline',
+                        name: focused ? 'ticket' : 'home-outline',
                     }),
                 }}
             />
@@ -92,7 +92,7 @@ const MainTab = () => {
                     },
                     headerTintColor: "#1D5349",
                     tabBarIcon :({ focused }) =>
-                    TabBarIcon({
+                    TabBarIcon2({
                         focused,
                         name: focused ? 'ticket' : 'ticket-outline',
                     }),
