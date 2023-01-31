@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* FrontEndTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FrontEndTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-FrontEnd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-FrontEnd.a */; };
+		12B185AB298642D000FCAFBA /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 12B185AA298642D000FCAFBA /* ios */; };
 		12BB9EB5297E9B710065BA94 /* Galmuri7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12BB9EAF297E9B710065BA94 /* Galmuri7.ttf */; };
 		12BB9EB6297E9B710065BA94 /* Galmuri14.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12BB9EB0297E9B710065BA94 /* Galmuri14.ttf */; };
 		12BB9EB7297E9B710065BA94 /* Galmuri9.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12BB9EB1297E9B710065BA94 /* Galmuri9.ttf */; };
@@ -36,6 +37,7 @@
 		00E356EE1AD99517003FC87E /* FrontEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrontEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* FrontEndTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrontEndTests.m; sourceTree = "<group>"; };
+		12B185AA298642D000FCAFBA /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; sourceTree = "<group>"; };
 		12BB9EAD297E861D0065BA94 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		12BB9EAF297E9B710065BA94 /* Galmuri7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Galmuri7.ttf; path = fonts/Galmuri7.ttf; sourceTree = "<group>"; };
 		12BB9EB0297E9B710065BA94 /* Galmuri14.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Galmuri14.ttf; path = fonts/Galmuri14.ttf; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				12B185AA298642D000FCAFBA /* ios */,
 				12BB9EAF297E9B710065BA94 /* Galmuri7.ttf */,
 				12BB9EB1297E9B710065BA94 /* Galmuri9.ttf */,
 				12BB9EB3297E9B710065BA94 /* Galmuri11-Bold.ttf */,
@@ -262,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B185AB298642D000FCAFBA /* ios in Resources */,
 				12BB9EB5297E9B710065BA94 /* Galmuri7.ttf in Resources */,
 				12BB9EB6297E9B710065BA94 /* Galmuri14.ttf in Resources */,
 				12BB9EB7297E9B710065BA94 /* Galmuri9.ttf in Resources */,
