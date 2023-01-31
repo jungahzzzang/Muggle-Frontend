@@ -2,8 +2,8 @@ import React, {useContext} from "react";
 import { ThemeContext } from "styled-components";
 import {createStackNavigator} from "@react-navigation/stack";
 import MainTab from "./MainTab";
-import BoardScreen from "../screenss/Board/BoardScreen";
-import ChatScreen from "../screenss/chat/ChatScreen";
+import BoardScreen from "../screens/Board/BoardScreen";
+import ChatScreen from "../screens/chat/ChatScreen";
 
 const Stack = createStackNavigator();
 
