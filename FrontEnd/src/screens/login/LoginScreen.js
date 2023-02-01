@@ -8,7 +8,7 @@ import {
   } from 'react-native-responsive-screen';
 import { useNavigation } from "@react-navigation/native";
 import { defaultFontText as Text } from "../../components/Text";
-import { AppleLogo, KakaoLogo, NaverLogo } from "../../utils/Images";
+import Button from "../../components/Button";
 
 const LoginScreen = () => {
 
@@ -23,18 +23,9 @@ const LoginScreen = () => {
                 </View>
             </View>
             <View style={styles.btnArea}>
-                <TouchableOpacity style={styles.naverBtn}>
-                    <Image source={require("../../assets/login/naver.png")}/>
-                    <Text style={styles.btnNaverText}>네이버 아이디로 로그인</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.kakaoBtn}>
-                    <Image source={require("../../assets/login/kakao.png")}/>
-                    <Text style={styles.btnKakaoText}>카카오 아이디로 로그인</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.appleBtn}>
-                    <Image source={require("../../assets/login/apple.png")}/>
-                    <Text style={styles.btnAppleText}>애플 아이디로 로그인</Text>
-                </TouchableOpacity>
+                <Button opt={"apple"} text="Apple 아이디 로그인" />
+                <Button opt={"kakao"} text="카카오톡 아이디 로그인" />
+                <Button opt={"naver"} text="네이버 아이디 로그인" />
             </View>
         </SafeAreaView>
     )
