@@ -6,7 +6,7 @@ import { defaultFontText as Text } from "../../components/Text";
 import NavigationHeader from "../../components/NavigationHeader";
 import { GoodsData } from "../../assets/json/FlatData";
 
-const GoodsScreen = ({route}) => {
+const GoodsScreen = ({}) => {
 
     const navigation = useNavigation();
 
