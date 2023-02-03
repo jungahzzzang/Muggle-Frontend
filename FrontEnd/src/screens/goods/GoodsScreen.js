@@ -6,7 +6,7 @@ import { defaultFontText as Text } from "../../components/Text";
 import NavigationHeader from "../../components/NavigationHeader";
 import { GoodsData } from "../../assets/json/FlatData";
 
-const GoodsScreen = () => {
+const GoodsScreen = ({route}) => {
 
     const navigation = useNavigation();
 
@@ -22,7 +22,7 @@ const GoodsScreen = () => {
                 <FlatList
                     data={GoodsData}
                     renderItem={({item}) => (
-                        <TouchableOpacity style={styles.container}>
+                        <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('GoodsDetail', item)}>
                             <Image source={item.img} style={styles.goodsImage}/>
                             <View style={styles.infoContainer}>
                                 <Text style={styles.titleText}>{item.itemTitle}</Text>
@@ -38,6 +38,9 @@ const GoodsScreen = () => {
                     )}
                     keyExtractor={(item,index) => index.toString()}
                 />
+                <TouchableOpacity onPress={() => navigation.navigate('GoodsUpload')} style={styles.addBtn}>
+                    <Text style={styles.addIcon}>+</Text>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     )
@@ -78,6 +81,22 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginLeft: 50,
         marginTop: 35
+    },
+    addBtn: {
+        position: 'absolute',
+        width: 56,
+        height: 56,
+        alignItems: 'center',
+        justifyContent: 'center',
+        right: 20,
+        bottom: 20,
+        backgroundColor: '#377D71',
+        borderRadius: 30,
+        elevation: 8
+    },
+    addIcon: {
+        fontSize: 40,
+        color: 'white'
     }
 })
 // export default class GoodsScreen extends React.Component {

@@ -15,6 +15,8 @@ import ChatListScreen from "../screens/goods/chat/ChatListScreen";
 import BuyChatScreen from "../screens/goods/chat/BuyChatScreen";
 import SaleChatScreen from "../screens/goods/chat/SaleChatScreen";
 import BoardWriteScreen from "../screens/board/BoardWriteScreen";
+import GoodsUploadScreen from "../screens/goods/GoodsUploadScreen";
+import GoodsDetailScreen from "../screens/goods/GoodsDetailScreen";
 
 const Stack = createStackNavigator();
 
@@ -33,7 +35,6 @@ const MainStack = () => {
             }}
         >
             <Stack.Screen name="Main" component={MainTab} />
-            <Stack.Screen name="Goods" component={GoodsScreen} />
             <Stack.Screen name="Board" component={BoardScreen} />
             <Stack.Screen name="Write" component={BoardWriteScreen}/>
 
@@ -48,6 +49,10 @@ const MainStack = () => {
             <Stack.Screen name="ChatList" component={ChatListScreen} />
             <Stack.Screen name="BuyChat" component={BuyChatScreen} />
             <Stack.Screen name="SaleChat" component={SaleChatScreen} />
+
+            <Stack.Screen name="Goods" component={GoodsScreen} />
+            <Stack.Screen name="GoodsUpload" component={GoodsUploadScreen}/>
+            <Stack.Screen name="GoodsDetail" component={GoodsDetailScreen}/>
         </Stack.Navigator>
     )
 }
