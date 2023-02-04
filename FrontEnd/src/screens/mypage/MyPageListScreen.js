@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, View, TouchableOpacity, ScrollView, FlatList} from "react-native";
+import {StyleSheet, View, TouchableOpacity, ScrollView, FlatList, SafeAreaView} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import NavigationHeader from "../../components/NavigationHeader";
 import FlatListItem from "../../components/FlatListItem";
@@ -10,9 +10,10 @@ const MyPageListScreen = () => {
     const navigation = useNavigation();
 
     return (
-            <ScrollView>
-                <View style={styles.container}>
-                    <NavigationHeader title={"마이페이지"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
+
+        <SafeAreaView style={styles.container}>
+            <View>
+                    <NavigationHeader title={"설정"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
                     <FlatListItem
                             title={MyPageListData[0].title}
                             onPress={() => navigation.navigate(Routes.Profile)}
@@ -38,7 +39,7 @@ const MyPageListScreen = () => {
                             onPress={() => navigation.navigate(Routes.Terms)}
                         />
                 </View>
-            </ScrollView>
+        </SafeAreaView>
     )
 
 }

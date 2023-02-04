@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, SafeAreaView, Image, TouchableOpacity} from "react-native";
+import KakaoLogins, {KAKAO_AUTH_TYPES} from '@react-native-seoul/kakao-login';
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
@@ -14,6 +15,16 @@ const LoginScreen = () => {
 
     const navigation = useNavigation();
 
+    async function kakaoLogin() {
+        const result = await KakaoLogins.login();
+        if (result.err) {
+            throw new Error(err.code);
+        }
+    
+        console.log(`Login Finished:${JSON.stringify(result)}`);
+        return;
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.topArea}>
@@ -24,7 +35,7 @@ const LoginScreen = () => {
             </View>
             <View style={styles.btnArea}>
                 <Button opt={"apple"} text="Apple 아이디 로그인" />
-                <Button opt={"kakao"} text="카카오톡 아이디 로그인" />
+                <Button opt={"kakao"} text="카카오톡 아이디 로그인" handlePress={kakaoLogin}/>
                 <Button opt={"naver"} text="네이버 아이디 로그인" />
             </View>
         </SafeAreaView>

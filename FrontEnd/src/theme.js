@@ -32,7 +32,7 @@ export const theme = {
 
     //Navigation
     headerTintColor: colors.green,
-    tabActiveColor: colors.pink,
+    tabActiveColor: colors.deepPink,
     tabInactiveColor: colors.grey_1,
 
     //Spinner

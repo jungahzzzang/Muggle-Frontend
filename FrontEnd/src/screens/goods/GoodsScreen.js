@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { StyleSheet, View, SafeAreaView, FlatList, TouchableOpacity, Image} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Ionicons"
+
 import { defaultFontText as Text } from "../../components/Text";
 import NavigationHeader from "../../components/NavigationHeader";
 import { GoodsData } from "../../assets/json/FlatData";
@@ -49,6 +50,7 @@ const GoodsScreen = ({}) => {
 const styles = StyleSheet.create({
     wrap: {
         flex: 1,
+        backgroundColor: '#fff'
     },
     container: {
         backgroundColor: 'white',

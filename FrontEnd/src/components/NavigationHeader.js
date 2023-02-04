@@ -5,7 +5,7 @@ import Icon from "react-native-vector-icons/Ionicons"
 import { defaultFontText as Text } from "../components/Text";
 
 //네비게이션 헤더 생성
-const NavigationHeader = ({title, leftIcon, leftIconName, rightIcon, rightButton, rightBtnText, rightBtnText2, rightIconName, rightIconName2, onPressLeft, onPressRight, onPressRight2}) => {
+const NavigationHeader = ({title, leftIcon, leftIconName, rightIcon1, rightIcon, rightButton, rightBtnText, rightBtnText2, rightIconName, rightIconName2, onPressLeft, onPressRight, onPressRight2}) => {
 
   const navigation = useNavigation();
 
