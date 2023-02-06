@@ -441,4 +441,6 @@ $RECYCLE.BIN/
 
 #front
 node_modules/
+ios/
 patches/
+OAuth.js

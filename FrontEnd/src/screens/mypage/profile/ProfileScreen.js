@@ -10,7 +10,7 @@ const ProfileScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <NavigationHeader title={"계정관리"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}
+            <NavigationHeader title={"마이페이지"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}
                               rightIcon rightIconName={"settings-outline"} onPressRight={()=>navigation.navigate('MyPage')}
             />
             <View>
@@ -23,6 +23,7 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#fff'
     }
 });
 
