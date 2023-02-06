@@ -11,7 +11,7 @@ const ProfileScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <NavigationHeader title={"계정관리"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}
-                              rightIcon rightIconName={"settings-outline"} onPressRight={()=>navigation.navigate('mypage')}
+                              rightIcon rightIconName={"settings-outline"} onPressRight={()=>navigation.navigate('MyPage')}
             />
             <View>
                 <Text>계정관리</Text>
