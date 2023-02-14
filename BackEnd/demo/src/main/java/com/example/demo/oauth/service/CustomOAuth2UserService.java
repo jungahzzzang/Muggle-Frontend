@@ -44,6 +44,8 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService{
 
             OAuth2UserInfo userInfo = OAuth2UserInfoFactory.getOAuth2UserInfo(providerType, _user.getAttributes());
 
+            System.out.println(userInfo.getEmail());
+
             User user = createUser(userInfo, providerType);
 
             return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(user.getRole().getKey())),
