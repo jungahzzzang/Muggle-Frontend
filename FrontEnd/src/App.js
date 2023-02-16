@@ -10,8 +10,8 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <StatusBar barStyle="dark-content"/>
-                {/* <Navigation /> */}
-                 <AuthStack />
+                 <Navigation />
+                 {/* <AuthStack /> */}
         </ThemeProvider>
     )
 }

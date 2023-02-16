@@ -3,6 +3,7 @@ import {ThemeContext} from "styled-components";
 import {createStackNavigator} from "@react-navigation/stack";
 import MainTab from "./MainTab";
 import BoardScreen from "../screens/board/BoardScreen";
+import BoardDetailScreen from "../screens/board/BoardDetailScreen";
 import GoodsScreen from "../screens/goods/GoodsScreen";
 import ChatScreen from "../screens/goods/chat/ChatScreen";
 import MyPageListScreen from "../screens/mypage/MyPageListScreen";
@@ -38,6 +39,7 @@ const MainStack = () => {
             <Stack.Screen name="Main" component={MainTab} />
             <Stack.Screen name="Board" component={BoardScreen} />
             <Stack.Screen name="Write" component={BoardWriteScreen}/>
+            <Stack.Screen name="BoardDetail" component={BoardDetailScreen}/>
 
             <Stack.Screen name="MyPage" component={MyPageListScreen} />
             <Stack.Screen name="FAQ" component={FAQScreen} />
