@@ -3,8 +3,10 @@ const colors = {
     black: '#000000',
     grey_0: '#d5d5d5',
     grey_1: '#a6a6a6',
-    green: '#1D5349',
-    pink: '#F5B4A7',
+    green: '#377D71',
+    lightPink: '#FBC5C5',
+    deepPink: '#FBA1A1',
+    purple: '#8879B0',
     red: '#e84118',
     blue: '#3679fe',
 };
@@ -31,7 +33,7 @@ export const theme = {
 
     //Navigation
     headerTintColor: colors.green,
-    tabActiveColor: colors.pink,
+    tabActiveColor: colors.deepPink,
     tabInactiveColor: colors.grey_1,
 
     //Spinner

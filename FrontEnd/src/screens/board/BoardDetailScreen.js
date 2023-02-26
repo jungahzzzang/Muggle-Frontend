@@ -3,7 +3,6 @@ import { StyleSheet, View, SafeAreaView, TextInput,Button } from "react-native";
 import {ListItem} from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { defaultFontText as Text } from "../../components/Text";
-import {BoardInfo} from "../../components/BoardInfo";
 import NavigationHeader from "../../components/NavigationHeader";
 
 const BoardDetailScreen = ({route}) => {

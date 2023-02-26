@@ -1,12 +1,13 @@
 import React, {useContext} from "react";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from "react-native-vector-icons/Ionicons"
-import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ThemeContext } from "styled-components";
 //각 페이지
 import MainScreen from "../screens/main/MainScreen";
 import BoardScreen from "../screens/board/BoardScreen";
-import MyPageListScreen from "../screens/mypage/MyPageListScreen";
+import ProfileScreen from "../screens/mypage/profile/ProfileScreen";
 import GoodsScreen from "../screens/goods/GoodsScreen";
 import TheaterSearchScreen from "../screens/theater/TheaterSearchScreen";
 
@@ -23,16 +24,6 @@ const TabBarIcon = ({focused, name}) => {
     );
 };
 
-const TabBarIcon2 = ({focused, name}) => {
-    const theme = useContext(ThemeContext);
-    return(
-        <FontAwesomeIcon
-            icon={name}
-            size={26}
-            color={focused ? theme.tabActiveColor : theme.tabInactiveColor}
-        />
-    );
-};
 
 const MainTab = () => {
     const theme = useContext(ThemeContext);
@@ -73,11 +64,12 @@ const MainTab = () => {
                         fontSize: 13
                     },
                     headerTintColor: "#1D5349",
-                    tabBarIcon :({ focused }) =>
-                    TabBarIcon2({
-                        focused,
-                        name: focused ? "theater-masks" : 'theater-masks-outline',
-                    }),
+                    tabBarIcon :({ focused }) => {
+                        return (
+                            <MaterialIcons name='theater-comedy' size={26}
+                            color={focused ? theme.tabActiveColor : theme.tabInactiveColor}/>
+                        )
+                    }
                 }}
             />
              <Tab.Screen
@@ -91,11 +83,12 @@ const MainTab = () => {
                         fontSize: 13
                     },
                     headerTintColor: "#1D5349",
-                    tabBarIcon :({ focused }) =>
-                    TabBarIcon({
-                        focused,
-                        name: focused ? 'ticket' : 'ticket-outline',
-                    }),
+                    tabBarIcon :({ focused }) => {
+                        return (
+                            <MaterialCommunityIcons name={focused ? 'ticket-confirmation': 'ticket-confirmation-outline'} size={26}
+                            color={focused ? theme.tabActiveColor : theme.tabInactiveColor}/>
+                        )
+                    }
                 }}
             />
             <Tab.Screen
@@ -109,16 +102,17 @@ const MainTab = () => {
                         fontSize: 13
                     },
                     headerTintColor: "#1D5349",
-                    tabBarIcon :({ focused }) =>
-                    TabBarIcon({
-                        focused,
-                        name: focused ? 'pencil' : 'pencil-outline',
-                    }),
+                    tabBarIcon :({ focused }) => {
+                        return (
+                            <MaterialCommunityIcons name={focused ? 'pencil-circle' : 'pencil-circle-outline'} size={26}
+                            color={focused ? theme.tabActiveColor : theme.tabInactiveColor}/>
+                        )
+                    }
                 }}
             />
             <Tab.Screen
                 name="마이페이지"
-                component={MyPageListScreen}
+                component={ProfileScreen}
                 options={{
                     headerStyle: {
                         height: 40
