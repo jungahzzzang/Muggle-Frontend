@@ -13,6 +13,7 @@ export const theme = {
     background: colors.white,
     text: colors.black,
     errorText: colors.red,
+    line: colors.grey_0,
 
     //Image Component
 

@@ -81,3 +81,41 @@ export const GoodsData = [
         mkType: 'onsale',
     }
 ]
+
+export const BoardData = [
+    {
+        id: 0,
+        title: '게시글 1',
+        date: '2022. 12. 06',
+        body: '게시글 1입니다.',
+        author: '작성자1'
+    },
+    {
+        id: 1,
+        title: '게시글 2',
+        date: '2022. 12. 06',
+        body: '게시글 2입니다.',
+        author: '작성자2'
+    },
+    {
+        id: 2,
+        title: '게시글 3',
+        date: '2022. 12. 07',
+        body: '게시글 3입니다.',
+        author: '작성자3'
+    },
+    {
+        id: 3,
+        title: '게시글 4',
+        date: '2022. 12. 07',
+        body: '게시글 4입니다.',
+        author: '작성자4'
+    },
+    {
+        id: 4,
+        title: '게시글 5',
+        date: '2022. 12. 07',
+        body: '게시글 5입니다.',
+        author: '작성자5'
+    }    
+]
