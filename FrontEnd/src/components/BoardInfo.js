@@ -10,9 +10,8 @@ const Container = styled.View`
     align-items: stretch;
     justify-content: flex-start;
     background-color: ${({ theme }) => theme.background};
-    margin: 20px 0 0 0;
+    margin: 20px 0 0 20px;
     padding: 15px 15px;
-    border-radius: 10px;
 `;
 
 const PostInfo = styled.View`
@@ -78,6 +77,10 @@ const BoardInfo = ({title, content, writer, writedate, reply}) => {
 }
 
 const styles = StyleSheet.create({
+
+    container: {
+        flexDirection: "column"
+    },
 
     titleText : {
         fontSize: 18,

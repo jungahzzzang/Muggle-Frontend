@@ -1,42 +1,72 @@
 import React from "react";
-import { StyleSheet, View, SafeAreaView, TextInput,Button } from "react-native";
+import styled from "styled-components";
+import { StyleSheet, View, SafeAreaView, TextInput, Button, Dimensions } from "react-native";
 import {ListItem} from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { defaultFontText as Text } from "../../components/Text";
+import BoardInfo from "../../components/BoardInfo";
+import ReplyInput from "../../components/ReplyInput";
 import NavigationHeader from "../../components/NavigationHeader";
+
+const Container = styled.View`
+    flex: 1;
+    width: ${({width})=>width}px;
+    flex-direction: column;
+    background-color: ${({theme})=>theme.appBackground};
+    align-items: center;
+    padding-bottom: 100px;
+    justify-content: center;
+`
+
+const List=styled.ScrollView`
+    flex: 1;
+    width: ${({width})=>width}px;
+    padding-left: 20;
+`;
+
+const replyContainer = styled.View`
+    flex: 1;
+    position: absolute;
+    bottom: 0;
+    background-color: ${({theme})=>theme.background};
+    align-items: center;
+`
+
+const Box=styled.View`
+    height:20px;
+    width: 10px;
+`;
 
 const BoardDetailScreen = ({route}) => {
 
     const navigation = useNavigation();
+    const width= Dimensions.get('window').width;
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container} width={width}>
             <NavigationHeader title={"게시판 글읽기"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}
                               rightIcon rightIconName={"pencil-outline"} onPressRight={() => navigation.navigate("Write")}/>
             {/* 프로필사진 + 이름 + 시간 */}
-            <View style={styles.writer}>
+            {/* <View style={styles.writer}>
                 <ListItem>
                     <ListItem.Content>
                         <ListItem.Title>{route.params.author}</ListItem.Title>
                         <ListItem.Subtitle>{route.params.date}</ListItem.Subtitle>
                     </ListItem.Content>
                 </ListItem>
-            </View>
-            {/* 제목+내용 */}
-            <View style={styles.content}>
-                <Text style={styles.title}>
-                    {route.params.title}
-                </Text>
-                <Text>
-                    {route.params.body}
-                </Text>
-            </View>
+            </View> */}
+            <BoardInfo
+                title={route.params.title}
+                writer={route.params.author}
+                writedate={route.params.date}
+                content={route.params.body}
+            />
             {/* 댓글 입력창 */}
             <View>
-                <TextInput
+                <ReplyInput
                     placeholder="댓글을 입력하세요."
+                    
                 />
-                <Button title="완료"/>
             </View>
         </SafeAreaView>
     )
@@ -45,7 +75,7 @@ const BoardDetailScreen = ({route}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
     writer: {
         marginTop: 10,
