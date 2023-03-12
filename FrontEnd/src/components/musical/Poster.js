@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useNavigation } from "@react-navigation/native";
 import { kopisImgURL } from "../../utils/OAuth";
 
 const PosterWrapper = styled.TouchableOpacity`
@@ -16,9 +17,18 @@ const PosterImg = styled.Image`
 `
 
 export default function Poster({url, musicalId}) {
+
+    const { navigate } = useNavigation();
     
     return (
-        <PosterWrapper>
+        <PosterWrapper
+            onPress={()=>
+                navigate('Stacks',{
+                    screen:'MusicalDetail',
+                    params: {musicalId: musicalId},
+                })
+            }
+        >
             <PosterImg source={{uri: `${kopisImgURL}${url}`}} />
         </PosterWrapper>
     )
