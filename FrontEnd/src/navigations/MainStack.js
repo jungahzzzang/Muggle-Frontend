@@ -19,6 +19,7 @@ import SaleChatScreen from "../screens/goods/chat/SaleChatScreen";
 import BoardWriteScreen from "../screens/board/BoardWriteScreen";
 import GoodsUploadScreen from "../screens/goods/GoodsUploadScreen";
 import GoodsDetailScreen from "../screens/goods/GoodsDetailScreen";
+import MusicalDetailScreen from "../screens/musical/MusicalDetailScreen";
 
 const Stack = createStackNavigator();
 
@@ -57,6 +58,8 @@ const MainStack = () => {
             <Stack.Screen name="Goods" component={GoodsScreen} />
             <Stack.Screen name="GoodsUpload" component={GoodsUploadScreen}/>
             <Stack.Screen name="GoodsDetail" component={GoodsDetailScreen}/>
+
+            <Stack.Screen name="MusicalDetail" component={MusicalDetailScreen}/>
         </Stack.Navigator>
     )
 }
