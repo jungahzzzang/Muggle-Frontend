@@ -10,16 +10,11 @@ import Poster from './Poster';
 
 export default function MonthMusicalItem ({musical}) {
 
-    const { navigate } = useNavigation();
+    const navigation = useNavigation();
 
     return (
         <ItemWrapper
-            onPress={() =>
-                navigate('Stacks', {
-                    screen: 'MusicalDetail',
-                    params: {musicalId: musical?.mt20id[0]},
-                })   
-            }
+            onPress={() =>navigation.navigate('MusicalDetail',{musicalId:musical?.mt20id[0]})}
         >
             <Poster url={musical?.poster || ""} musicalId={musical?.mt20id[0]} />
         </ItemWrapper>

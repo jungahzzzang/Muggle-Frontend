@@ -18,16 +18,11 @@ const PosterImg = styled.Image`
 
 export default function Poster({url, musicalId}) {
 
-    const { navigate } = useNavigation();
+    const navigation = useNavigation();
     
     return (
         <PosterWrapper
-            onPress={()=>
-                navigate('Stacks',{
-                    screen:'MusicalDetail',
-                    params: {musicalId: musicalId},
-                })
-            }
+            onPress={()=> navigation.navigate('MusicalDetail', {musicalId:musicalId})}
         >
             <PosterImg source={{uri: `${kopisImgURL}${url}`}} />
         </PosterWrapper>

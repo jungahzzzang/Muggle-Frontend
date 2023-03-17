@@ -1,14 +1,20 @@
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import styled from "@emotion/native";
 import { useQuery } from "react-query";
 import { getMusicalData } from "../../utils/api";
+import { defaultFontText as Text } from "../../components/Text";
+import NavigationHeader from "../../components/NavigationHeader";
 
 export default function MusicalDetailScreen({
+    
     navigation: { navigate },
     route: {
         params: { musicalId },
     },
 }) {
+
+    const navigation = useNavigation();
 
     const {data: musicalData, isLoading: isLoadingMD} = useQuery(
         ['MusicalData', musicalId],
@@ -19,8 +25,10 @@ export default function MusicalDetailScreen({
 
         <Container>
             <TotalInfoPart>
+                <NavigationHeader title={"뮤지컬 정보"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
                 {musicalData?.dbs?.db?.map((musical) => (
                     <InfoPart key={musicalId}>
+                        {/* 포스터 이미지 */}
                         <ImgPart>
                             <BackImg
                                 style={{resizeMode: 'stretch'}}
@@ -30,6 +38,17 @@ export default function MusicalDetailScreen({
                             />
                         </ImgPart>
                         <TitlePart numberOfLines={4}>{musical.prfnm}</TitlePart>
+                        {/* 정보 */}
+                        <MusicalInfo>
+                            <Info>출연 : {musical.prfcast ?? '정보없음'}</Info>
+                            <Info>제작 : {musical.prfcrew ?? '정보없음'}</Info>
+                            <Info>
+                                공연 기간 : {musical?.prfpdfrom} ~ {musical.prfpdto}
+                            </Info>
+                            <Info>공연 장소 : {musical.fcltynm ?? '정보 없음'}</Info>
+                            <Info>러닝타임 : {musical.prfruntime ?? '정보 없음'}</Info>
+                            <Info>관람 연령가 : {musical.prfage ?? '정보 없음'}</Info>
+                        </MusicalInfo>
                     </InfoPart>
                 ))}
             </TotalInfoPart>
