@@ -8,6 +8,5 @@ public enum ProviderType {
     FACEBOOK,
     NAVER,
     KAKAO,
-    APPLE,
-    LOCAL
+    LOCAL;
 }
