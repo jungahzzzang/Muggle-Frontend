@@ -12,11 +12,11 @@ const App = () => {
     
     return (
         <ThemeProvider theme={theme}>
-            <QueryClientProvider client={queryClient}>
-                <StatusBar barStyle="dark-content"/>
-                    <Navigation />
-                    {/* <AuthStack /> */}
-            </QueryClientProvider>
+                <QueryClientProvider client={queryClient}>
+                    <StatusBar barStyle="dark-content"/>
+                        {/* <Navigation /> */}
+                        <AuthStack />
+                </QueryClientProvider>
         </ThemeProvider>
     )
 }

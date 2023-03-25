@@ -6,6 +6,12 @@ import {
     widthPercentageToDP,
     heightPercentageToDP,
   } from 'react-native-responsive-screen';
+//import {useDispatch} from 'react-redux';
+import {
+    getProfile as getKakaoProfile,
+    loginWithKakaoAccount,
+    login as kakaoLogin,
+    unlink} from '@react-native-seoul/kakao-login';
 import { useNavigation } from "@react-navigation/native";
 import { defaultFontText as Text } from "../../components/Text";
 import Button from "../../components/Button";
@@ -13,6 +19,25 @@ import Button from "../../components/Button";
 const LoginScreen = () => {
 
     const navigation = useNavigation();
+    //const dispatch = useDispatch();
+
+    const signInWithKakao = async () => {
+        const result = await loginWithKakaoAccount();
+        console.log(result);
+    }
+
+    // const signInWithKakaoSelect = async type => {
+    //     try {
+    //         let token = '';
+    //         if (type == 'exist') {
+    //             token = await kakaoLogin();
+    //         } else if (type == 'change') {
+    //             token = await loginWithKakaoAccount();
+    //         }
+    //     }
+
+    //     const profile = await get
+    // }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -24,7 +49,7 @@ const LoginScreen = () => {
             </View>
             <View style={styles.btnArea}>
                 <Button opt={"apple"} text="Apple 아이디 로그인" />
-                <Button opt={"kakao"} text="카카오톡 아이디 로그인" />
+                <Button opt={"kakao"} text="카카오톡 아이디 로그인" handlePress={signInWithKakao}/>
                 <Button opt={"naver"} text="네이버 아이디 로그인" />
             </View>
         </SafeAreaView>

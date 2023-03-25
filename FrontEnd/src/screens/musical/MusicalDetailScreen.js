@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import styled from "@emotion/native";
 import { useQuery } from "react-query";
@@ -22,8 +23,8 @@ export default function MusicalDetailScreen({
     );
 
     return (
-
-        <Container>
+        <SafeAreaView style={styles.container}>
+             <Container>
             <TotalInfoPart>
                 <NavigationHeader title={"뮤지컬 정보"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
                 {musicalData?.dbs?.db?.map((musical) => (
@@ -53,8 +54,15 @@ export default function MusicalDetailScreen({
                 ))}
             </TotalInfoPart>
         </Container>
+        </SafeAreaView>
+       
     )
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    }
+})
 
 const Container = styled.ScrollView`
     flex: 1;
