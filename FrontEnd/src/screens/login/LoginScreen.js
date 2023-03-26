@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { StyleSheet, View, SafeAreaView, Image, TouchableOpacity} from "react-native";
 import {
     widthPercentageToDP as wp,
@@ -7,11 +7,7 @@ import {
     heightPercentageToDP,
   } from 'react-native-responsive-screen';
 //import {useDispatch} from 'react-redux';
-import {
-    getProfile as getKakaoProfile,
-    loginWithKakaoAccount,
-    login as kakaoLogin,
-    unlink} from '@react-native-seoul/kakao-login';
+import { login, logout, unlink, getProfile as getKakaoProfile} from '@react-native-seoul/kakao-login';
 import { useNavigation } from "@react-navigation/native";
 import { defaultFontText as Text } from "../../components/Text";
 import Button from "../../components/Button";
@@ -19,25 +15,45 @@ import Button from "../../components/Button";
 const LoginScreen = () => {
 
     const navigation = useNavigation();
+    const [result, setResult] = useState('');
     //const dispatch = useDispatch();
 
     const signInWithKakao = async () => {
-        const result = await loginWithKakaoAccount();
-        console.log(result);
-    }
+        try {
+            const token = await login();
+            setResult(JSON.stringify(token));
+            console.log(token);
+        }catch(err) {
+            console.error('login err', err);
+        }
+    };
 
-    // const signInWithKakaoSelect = async type => {
-    //     try {
-    //         let token = '';
-    //         if (type == 'exist') {
-    //             token = await kakaoLogin();
-    //         } else if (type == 'change') {
-    //             token = await loginWithKakaoAccount();
-    //         }
-    //     }
+    const signOutWithKakao = async() => {
+        try {
+            const message = await logout();
+            setResult(message);
+        }catch (err) {
+            console.log('signOut error', err);
+        }
+    };
 
-    //     const profile = await get
-    // }
+    const getProfile = async () => {
+        try {
+            const profile = await getKakaoProfile();
+            setResult(JSON.stringify(profile));
+        } catch(err) {
+            console.error('signOut err', err);
+        }
+    };
+
+    const unlinkKakao = async () => {
+        try {
+            const message = await unlink();
+            setResult(message);
+        } catch(err) {
+            console.error('signOut error', err);
+        }
+    };
 
     return (
         <SafeAreaView style={styles.container}>
