@@ -12,6 +12,7 @@ import com.example.demo.oauth.token.AuthTokenProvider;
 import com.example.demo.utils.CookieUtil;
 import com.example.demo.utils.HeaderUtil;
 import io.jsonwebtoken.Claims;
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
+@Api(tags = {"AUTH 인증 API"})
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor

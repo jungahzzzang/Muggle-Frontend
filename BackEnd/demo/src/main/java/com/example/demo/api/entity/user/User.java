@@ -59,7 +59,9 @@ public class User {
                 String email,
                 String emailVerifiedYn,
                 ProviderType providerType,
-                RoleType roleType, LocalDateTime createAt, LocalDateTime modifiedAt) {
+                RoleType roleType,
+                LocalDateTime createAt,
+                LocalDateTime modifiedAt) {
         this.userId = userId;
         this.username = username;
         this.password = "NO_PASS";
