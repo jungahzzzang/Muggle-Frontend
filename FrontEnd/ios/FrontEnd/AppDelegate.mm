@@ -4,6 +4,7 @@
 
 #import <RNKakaoLogins.h>
 
+#import <NaverThirdPartyLogin/NaverThirdPartyLoginConnection.h>
 
 @implementation AppDelegate
 

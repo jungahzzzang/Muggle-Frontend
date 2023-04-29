@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { StyleSheet, View, SafeAreaView, Image, TouchableOpacity} from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
@@ -7,7 +8,7 @@ import {
     heightPercentageToDP,
   } from 'react-native-responsive-screen';
 //import {useDispatch} from 'react-redux';
-import { login, logout, unlink, getProfile as getKakaoProfile} from '@react-native-seoul/kakao-login';
+import { login, logout, unlink, getProfile as getKakaoProfile, getAccessToken} from '@react-native-seoul/kakao-login';
 import { useNavigation } from "@react-navigation/native";
 import { defaultFontText as Text } from "../../components/Text";
 import Button from "../../components/Button";
@@ -15,23 +16,47 @@ import Button from "../../components/Button";
 const LoginScreen = () => {
 
     const navigation = useNavigation();
-    const [result, setResult] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [errortext, setErrortext] = useState('');
+    const [kakaoToken, setKakaoToken] = useState('');
     //const dispatch = useDispatch();
 
     const signInWithKakao = async () => {
         try {
             const token = await login();
-            setResult(JSON.stringify(token));
+            const kakaoProfileResult = await getKakaoProfile();
+            const accessToken = await getAccessToken();
+            setKakaoToken(JSON.stringify(token));
             console.log(token);
+            return fetch('http://localhost:8080/api/signin/kakao', {
+                method: 'POST',
+                body: JSON.stringify({kakaoProfileResult, accessToken}),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then(response => response.json())
+                .then(responseJson => {
+                    setLoading(false);
+                    if(responseJson.status === 200){
+                        AsyncStorage.setItem('user_email', responseJson.email);
+                        AsyncStorage.setItem('user_token', responseJson.token);
+                        AsyncStorage.setItem('user_name', responseJson.username);
+                    }else {
+                        setErrortext(responseJson.message);
+                        console.log('이메일 혹은 패스워드를 확인해주세요.');
+                    }
+                })
         }catch(err) {
             console.error('login err', err);
         }
     };
-
+ß
     const signOutWithKakao = async() => {
         try {
             const message = await logout();
-            setResult(message);
+            console.log(message);
+            setKakaoToken('');
         }catch (err) {
             console.log('signOut error', err);
         }
@@ -40,7 +65,7 @@ const LoginScreen = () => {
     const getProfile = async () => {
         try {
             const profile = await getKakaoProfile();
-            setResult(JSON.stringify(profile));
+            setKakaoToken(JSON.stringify(profile));
         } catch(err) {
             console.error('signOut err', err);
         }
@@ -49,7 +74,7 @@ const LoginScreen = () => {
     const unlinkKakao = async () => {
         try {
             const message = await unlink();
-            setResult(message);
+            setKakaoToken(message);
         } catch(err) {
             console.error('signOut error', err);
         }
