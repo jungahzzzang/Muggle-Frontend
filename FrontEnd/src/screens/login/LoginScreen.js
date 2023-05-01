@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { StyleSheet, View, SafeAreaView, Image, TouchableOpacity} from "react-native";
+import { StyleSheet, View, SafeAreaView, Image, TouchableOpacity, Alert} from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
     widthPercentageToDP as wp,
@@ -9,9 +9,11 @@ import {
   } from 'react-native-responsive-screen';
 //import {useDispatch} from 'react-redux';
 import { login, logout, unlink, getProfile as getKakaoProfile, getAccessToken} from '@react-native-seoul/kakao-login';
+import NaverLogin, {NaverLoginResponse, GetProfileResponse} from '@react-native-seoul/naver-login';
 import { useNavigation } from "@react-navigation/native";
 import { defaultFontText as Text } from "../../components/Text";
 import Button from "../../components/Button";
+import {naverSecret, naverClientId} from '../../utils/OAuth';
 
 const LoginScreen = () => {
 
@@ -19,7 +21,14 @@ const LoginScreen = () => {
     const [loading, setLoading] = useState(false);
     const [errortext, setErrortext] = useState('');
     const [kakaoToken, setKakaoToken] = useState('');
+    const [naverToken, setNaverToken] = useState(null);
     //const dispatch = useDispatch();
+
+    const naverKey = {
+        kConsumerKey: naverClientId,
+        kConsumerSecret: naverSecret,
+        kServiceAppName: 'Muggle',
+    }
 
     const signInWithKakao = async () => {
         try {
@@ -62,6 +71,64 @@ const LoginScreen = () => {
         }
     };
 
+    const signInNaver = async props => 
+        await new Promise((resolve, reject) => {
+            NaverLogin.login(props, (err, token) => {
+                setNaverToken(token);
+                if(err) {
+                    reject(err);
+                    return;
+                }
+                resolve(token);
+            });
+        }).catch(error => {
+            console.log(error);
+        });
+    
+    const signInWithNaver = () => {
+        signInNaver(naverKey).then(async resolvedToken => {
+            try {
+                const naverProfileResult = await getProfile(resolvedToken.accessToken);
+                if (naverProfileResult.resultcode === '024') {
+                    Alert.alert('로그인 실패', naverProfileResult.message);
+                    return;
+                }
+                return fetch('http://localhost:8080/api/signin/naver', {
+                    method: 'POST',
+                    body: JSON.stringify(naverProfileResult),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                    .then(response => response.json())
+                    .then(responseJson=> {
+                        setLoading(false);
+                        console.log('naver responseJson', responseJson);
+                        if (responseJson.status === 200) {
+                            AsyncStorage.setItem('user_email', responseJson.email);
+                            AsyncStorage.setItem('user_token', responseJson.token);
+                            AsyncStorage.setItem('user_name', responseJson.username);
+                            
+                        } else {
+                            setErrortext(responseJson.message);
+                            console.log('이메일 혹은 패스워드를 확인해주세요.');
+                        }
+                    })
+                    .catch(error => {
+                        setLoading(false);
+                        console.error(error);
+                    });
+            } catch (error) {
+                console.log(error);
+            }
+        });
+    };
+
+    const naverSignOut = () => {
+        NaverLogin.logout();
+        setNaverToken('');
+    };
+    
     const getProfile = async () => {
         try {
             const profile = await getKakaoProfile();
@@ -91,7 +158,7 @@ const LoginScreen = () => {
             <View style={styles.btnArea}>
                 <Button opt={"apple"} text="Apple 아이디 로그인" />
                 <Button opt={"kakao"} text="카카오톡 아이디 로그인" handlePress={signInWithKakao}/>
-                <Button opt={"naver"} text="네이버 아이디 로그인" />
+                <Button opt={"naver"} text="네이버 아이디 로그인"  handlePress={signInWithNaver}/>
             </View>
         </SafeAreaView>
     )
