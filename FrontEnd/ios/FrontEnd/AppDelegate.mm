@@ -14,9 +14,6 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
-  
-  [[NaverThirdPartyLoginConnection getSharedInstance] setIsNaverAppOauthEnable:YES];
-  [[NaverThirdPartyLoginConnection getSharedInstance] setIsInAppOauthEnable:YES];
 
   return YES;
 }
@@ -28,7 +25,7 @@
       return [RNKakaoLogins handleOpenUrl: url];
    }
 
-  if ([url.scheme isEqualToString:@"your_apps_urlscheme"]) {
+  if ([url.scheme isEqualToString:@"{{com.muggle.test}}"]) {
       return [[NaverThirdPartyLoginConnection getSharedInstance] application:app openURL:url options:options];
     }
  return NO;
