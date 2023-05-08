@@ -9,11 +9,12 @@ import {
   } from 'react-native-responsive-screen';
 //import {useDispatch} from 'react-redux';
 import { login, logout, unlink, getProfile as getKakaoProfile, getAccessToken} from '@react-native-seoul/kakao-login';
-import NaverLogin, {NaverLoginResponse, GetProfileResponse} from '@react-native-seoul/naver-login';
+import {getProfile, NaverLogin} from '@react-native-seoul/naver-login';
 import { useNavigation } from "@react-navigation/native";
 import { defaultFontText as Text } from "../../components/Text";
 import Button from "../../components/Button";
-import {naverSecret, naverClientId} from '../../utils/OAuth';
+import naverSecret from '../../utils/OAuth';
+import naverClientId from "../../utils/OAuth";
 
 const LoginScreen = () => {
 
@@ -28,7 +29,7 @@ const LoginScreen = () => {
         kConsumerKey: naverClientId,
         kConsumerSecret: naverSecret,
         kServiceAppName: 'Muggle',
-    }
+    };
 
     const signInWithKakao = async () => {
         try {
@@ -60,7 +61,7 @@ const LoginScreen = () => {
             console.error('login err', err);
         }
     };
-ß
+
     const signOutWithKakao = async() => {
         try {
             const message = await logout();
