@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { StyleSheet, View, SafeAreaView, Image, TouchableOpacity, Alert} from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from "axios";
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
@@ -8,37 +9,41 @@ import {
     heightPercentageToDP,
   } from 'react-native-responsive-screen';
 //import {useDispatch} from 'react-redux';
-import { login, logout, unlink, getProfile as getKakaoProfile, getAccessToken} from '@react-native-seoul/kakao-login';
-import {getProfile, NaverLogin} from '@react-native-seoul/naver-login';
+import { login, logout, unlink, getProfile, getAccessToken} from '@react-native-seoul/kakao-login';
+import NaverLogin, { getProfile as getNaverProfile} from '@react-native-seoul/naver-login';
 import { useNavigation } from "@react-navigation/native";
 import { defaultFontText as Text } from "../../components/Text";
 import Button from "../../components/Button";
+import { kakaoRedirectURL } from "../../utils/OAuth";
+import { naverRedirectURL } from "../../utils/OAuth";
 import naverSecret from '../../utils/OAuth';
 import naverClientId from "../../utils/OAuth";
+
+const naverKey = {
+    consumerKey: 'hiX6817TA0SgRMv_x1vE',
+    consumerSecret: 'VATQ5LqZ6s',
+    appName: 'Muggle',
+    serviceUrlScheme: 'naverLogin'
+};
 
 const LoginScreen = () => {
 
     const navigation = useNavigation();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = React.useState(false);
     const [errortext, setErrortext] = useState('');
     const [kakaoToken, setKakaoToken] = useState('');
-    const [naverToken, setNaverToken] = useState(null);
+    const [naverToken, setNaverToken] = React.useState(null);
+    const [naverData, setNaverData] = useState();
     //const dispatch = useDispatch();
-
-    const naverKey = {
-        kConsumerKey: naverClientId,
-        kConsumerSecret: naverSecret,
-        kServiceAppName: 'Muggle',
-    };
 
     const signInWithKakao = async () => {
         try {
             const token = await login();
-            const kakaoProfileResult = await getKakaoProfile();
+            const kakaoProfileResult = await getProfile();
             const accessToken = await getAccessToken();
             setKakaoToken(JSON.stringify(token));
-            console.log(token);
-            return fetch('http://localhost:8080/api/signin/kakao', {
+            console.log(kakaoProfileResult);
+            return fetch(`${kakaoRedirectURL}`, {
                 method: 'POST',
                 body: JSON.stringify({kakaoProfileResult, accessToken}),
                 headers: {
@@ -48,10 +53,12 @@ const LoginScreen = () => {
                 .then(response => response.json())
                 .then(responseJson => {
                     setLoading(false);
+                    console.log(JSON.stringify(responseJson));
                     if(responseJson.status === 200){
                         AsyncStorage.setItem('user_email', responseJson.email);
                         AsyncStorage.setItem('user_token', responseJson.token);
                         AsyncStorage.setItem('user_name', responseJson.username);
+                        navigation.navigate("Main");
                     }else {
                         setErrortext(responseJson.message);
                         console.log('이메일 혹은 패스워드를 확인해주세요.');
@@ -72,29 +79,70 @@ const LoginScreen = () => {
         }
     };
 
-    const signInNaver = async props => 
-        await new Promise((resolve, reject) => {
-            NaverLogin.login(props, (err, token) => {
-                setNaverToken(token);
-                if(err) {
-                    reject(err);
-                    return;
+    const signInNaver = async () => {
+        const {failureResponse, successResponse} = await NaverLogin.login(naverKey);
+        if (successResponse) {
+            try {
+                const {data} = await requestGetNaverLogin(successResponse.accessToken);
+                setNaverToken(successResponse);
+                await AsyncStorage.setItem( data.accessToken);
+                navigation.navigate('Main');
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            console.log(result);
+        }
+    }
+
+    const getNaverProfile = async (token) => {
+        try {
+            const profileResult = await getNaverProfile(token);
+            console.log(profileResult);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const requestGetNaverLogin = async accessToken => {
+        return axios.post(
+            'http://localhost:8085/oauth/callback/naver',
+            {},
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
                 }
-                resolve(token);
-            });
-        }).catch(error => {
-            console.log(error);
-        });
-    
-    const signInWithNaver = () => {
+            }
+        )
+    }
+
+
+    // const signInNaver = async props => {
+    //     await new Promise((resolve, reject) => {
+    //         NaverLogin.login(props, (err, token) => {
+    //             console.log(`\n\n Token is fetched :: ${token} \n\n`);
+    //             setNaverToken(token);
+    //             console.log("네이버 로그인 성공, navertoken: "+ JSON.stringify(token));
+    //             if(err) {
+    //                 reject(err);
+    //                 return;
+    //             }
+    //             resolve(token);
+    //         });
+    //     }).catch(error => {
+    //         console.log(error);
+    //     });
+    // }
+
+    const signInWithNaver = async () => {
         signInNaver(naverKey).then(async resolvedToken => {
             try {
                 const naverProfileResult = await getProfile(resolvedToken.accessToken);
                 if (naverProfileResult.resultcode === '024') {
                     Alert.alert('로그인 실패', naverProfileResult.message);
                     return;
-                }
-                return fetch('http://localhost:8080/api/signin/naver', {
+                } 
+                return fetch('http://localhost:8085/oauth/callback/naver', {
                     method: 'POST',
                     body: JSON.stringify(naverProfileResult),
                     headers: {
@@ -102,35 +150,87 @@ const LoginScreen = () => {
                     },
                 })
                     .then(response => response.json())
-                    .then(responseJson=> {
+                    .then(responseJson => {
                         setLoading(false);
                         console.log('naver responseJson', responseJson);
                         if (responseJson.status === 200) {
-                            AsyncStorage.setItem('user_email', responseJson.email);
+                            AsyncStorage.setItem('uset_email', responseJson.email);
                             AsyncStorage.setItem('user_token', responseJson.token);
                             AsyncStorage.setItem('user_name', responseJson.username);
-                            
+                            navigation.navigate("Main");
                         } else {
                             setErrortext(responseJson.message);
-                            console.log('이메일 혹은 패스워드를 확인해주세요.');
+                            console.log('이메일 혹은 패스워드를 확인해 주세요.');
                         }
-                    })
-                    .catch(error => {
+                    }).catch(error => {
                         setLoading(false);
                         console.error(error);
                     });
             } catch (error) {
                 console.log(error);
             }
-        });
+        })
     };
 
-    const naverSignOut = () => {
-        NaverLogin.logout();
+    // useEffect(() => {
+    //     if(naverToken) {
+    //         signInWithNaver();
+    //     }
+    // }, [naverToken]);
+
+
+    // const signInWithNaver = () => {
+    //     signInNaver(naverKey).then(async resolvedToken => {
+    //         try {
+    //             const naverProfileResult = await getProfile(resolvedToken.accessToken);
+    //             console.log(naverProfileResult);
+    //             if (naverProfileResult.resultcode === '024') {
+    //                 Alert.alert('로그인 실패', naverProfileResult.message);
+    //                 return;
+    //             }
+    //             return fetch('http://localhost:8080/api/signin/naver', {
+    //                 method: 'POST',
+    //                 body: JSON.stringify(naverProfileResult),
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //             })
+    //                 .then(response => response.json())
+    //                 .then(responseJson=> {
+    //                     setLoading(false);
+    //                     console.log('naver responseJson', responseJson);
+    //                     if (responseJson.status === 200) {
+    //                         AsyncStorage.setItem('user_email', responseJson.email);
+    //                         AsyncStorage.setItem('user_token', responseJson.token);
+    //                         AsyncStorage.setItem('user_name', responseJson.username);
+                            
+    //                     } else {
+    //                         setErrortext(responseJson.message);
+    //                         console.log('이메일 혹은 패스워드를 확인해주세요.');
+    //                     }
+    //                 })
+    //                 .catch(error => {
+    //                     setLoading(false);
+    //                     console.error(error);
+    //                 });
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     });
+    // };
+
+    const naverSignOut = async () => {
+        await NaverLogin.logout();
         setNaverToken('');
     };
+
+    const deleteToken = async () => {
+        await NaverLogin.deleteToken();
+        setNaverData('');
+    }
+
     
-    const getProfile = async () => {
+    const getKakaoProfile = async () => {
         try {
             const profile = await getKakaoProfile();
             setKakaoToken(JSON.stringify(profile));
@@ -160,6 +260,8 @@ const LoginScreen = () => {
                 <Button opt={"apple"} text="Apple 아이디 로그인" />
                 <Button opt={"kakao"} text="카카오톡 아이디 로그인" handlePress={signInWithKakao}/>
                 <Button opt={"naver"} text="네이버 아이디 로그인"  handlePress={signInWithNaver}/>
+                <TouchableOpacity onPress={deleteToken}><Text>deleteToken</Text></TouchableOpacity>
+                <TouchableOpacity onPress={naverSignOut}><Text>로그아웃</Text></TouchableOpacity>
             </View>
         </SafeAreaView>
     )
@@ -190,7 +292,7 @@ const styles = StyleSheet.create({
     },
     logo: {
         width: 150,
-        height: 40
+        height: 90
     },
     text: {
         fontSize: 16,
