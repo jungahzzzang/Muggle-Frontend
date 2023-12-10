@@ -1,23 +1,24 @@
-import React, {useEffect} from "react";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "react-native";
 import { QueryClient, QueryClientProvider } from "react-query";
 import {ThemeProvider} from "styled-components"
 import { theme } from "./theme";
-import Navigation from "./navigations/Index";
-import AuthStack from "./navigations/AuthStack";
+import RootStack from "./navigations/RootStack";
 
 const queryClient = new QueryClient();
 
 const App = () => {
     
     return (
-        <ThemeProvider theme={theme}>
+        <NavigationContainer>
+            <ThemeProvider theme={theme}>
                 <QueryClientProvider client={queryClient}>
                     <StatusBar barStyle="dark-content"/>
-                        {/* <Navigation /> */}
-                        <AuthStack />
+                        <RootStack />
                 </QueryClientProvider>
-        </ThemeProvider>
+            </ThemeProvider>
+        </NavigationContainer>
     )
 }
 

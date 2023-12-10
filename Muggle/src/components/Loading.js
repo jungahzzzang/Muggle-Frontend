@@ -1,5 +1,8 @@
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, Image, View } from "react-native";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { value } from "deprecated-react-native-prop-types/DeprecatedTextInputPropTypes";
 
 const LogoWrapper = styled.View`
     width: 200px;
@@ -20,14 +23,27 @@ const Loader = styled.View`
     align-items: center;
 `;
 
-export default function Loading() {
+const Loading = ({navigation}) => {
+
+    const [animation, setAnimation] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setAnimation(false);
+            AsyncStorage.getItem('user_token').then(value=>
+                navigation.navigate(value != null ? 'AuthStack' : 'MainStack'),
+            )
+        }, 3000);
+    }, [navigation]);
 
     return (
         <Loader>
             <LogoWrapper>
                 <Logo source={require('../assets/logo/muggle_logo.png')}/>
             </LogoWrapper>
-            <ActivityIndicator color={'#22AFFC'}/>
+            <ActivityIndicator color={'#22AFFC'} animating={animation} />
         </Loader>
     )
 }
+
+export default Loading;

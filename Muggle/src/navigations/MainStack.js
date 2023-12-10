@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import {ThemeContext} from "styled-components";
 import {createStackNavigator} from "@react-navigation/stack";
 import MainTab from "./MainTab";
+import MainScreen from "../screens/main/MainScreen";
 import BoardScreen from "../screens/board/BoardScreen";
 import BoardDetailScreen from "../screens/board/BoardDetailScreen";
 import GoodsScreen from "../screens/goods/GoodsScreen";
@@ -27,39 +28,107 @@ const MainStack = () => {
     const theme = useContext(ThemeContext);
 
     return (
-        <Stack.Navigator
-            initialRouteName="Main"
-            screenOptions={{
-                headerShown: false,
-                headerTitleAlign: 'center',
-                headerTintColor: theme.headerTintColor,
-                cardStyle: {backgroundColor: theme.backgroundColor},
-                headerBackTitleVisible: false,
-            }}
-        >
-            <Stack.Screen name="Main" component={MainTab} />
-            <Stack.Screen name="Board" component={BoardScreen} />
-            <Stack.Screen name="Write" component={BoardWriteScreen}/>
-            <Stack.Screen name="BoardDetail" component={BoardDetailScreen}/>
-
-            <Stack.Screen name="MyPage" component={MyPageListScreen} />
-            <Stack.Screen name="FAQ" component={FAQScreen} />
-            <Stack.Screen name="NoticeList" component={NoticeListScreen} />
-            <Stack.Screen name="PersonalInfo" component={PersonalInfoScreen} />
-            <Stack.Screen name="Profile" component={ProfileScreen} />
-            <Stack.Screen name="Settings" component={SettingsScreen} />
-            <Stack.Screen name="Terms" component={TermsScreen} />
-
-            <Stack.Screen name="Chat" component={ChatScreen} />
-            <Stack.Screen name="ChatList" component={ChatListScreen} />
-            <Stack.Screen name="BuyChat" component={BuyChatScreen} />
-            <Stack.Screen name="SaleChat" component={SaleChatScreen} />
-
-            <Stack.Screen name="Goods" component={GoodsScreen} />
-            <Stack.Screen name="GoodsUpload" component={GoodsUploadScreen}/>
-            <Stack.Screen name="GoodsDetail" component={GoodsDetailScreen}/>
-
-            <Stack.Screen name="MusicalDetail" component={MusicalDetailScreen}/>
+        <Stack.Navigator>
+            <Stack.Screen
+                name="Main"
+                component={MainTab}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Home"
+                component={MainScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Board"
+                component={BoardScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Write"
+                component={BoardWriteScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="BoardDetail"
+                component={BoardDetailScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="MyPage"
+                component={MyPageListScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="FAQ"
+                component={FAQScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="NoticeList"
+                component={NoticeListScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="PersonalInfo"
+                component={PersonalInfoScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Profile"
+                component={ProfileScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Settings"
+                component={SettingsScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Terms"
+                component={TermsScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Chat"
+                component={ChatScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="ChatList"
+                component={ChatListScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="BuyChat"
+                component={BuyChatScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="SaleChat"
+                component={SaleChatScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Goods"
+                component={GoodsScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="GoodsUpload"
+                component={GoodsUploadScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="GoodsDetail"
+                component={GoodsDetailScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="MusicalDetail"
+                component={MusicalDetailScreen}
+                options={{headerShown: false}}
+            />
         </Stack.Navigator>
     )
 }
