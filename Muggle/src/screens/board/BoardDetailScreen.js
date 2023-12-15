@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { StyleSheet, View, SafeAreaView, TextInput, Button, Dimensions } from "react-native";
 import {ListItem} from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
-import { defaultFontText as Text } from "../../components/Text";
-import BoardInfo from "../../components/BoardInfo";
-import ReplyInput from "../../components/ReplyInput";
-import NavigationHeader from "../../components/NavigationHeader";
+import { defaultFontText as Text } from "../../components/shared/Text";
+import BoardInfo from "../../components/board/BoardInfo";
+import ReplyInput from "../../components/shared/ReplyInput";
+import NavigationHeader from "../../components/shared/NavigationHeader";
 
 const Container = styled.View`
     flex: 1;

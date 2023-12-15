@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
-import { defaultFontText as Text } from "../components/Text";
-import appleIcon from "../assets/login/appleIcon.png";
-import kakaoIcon from "../assets/login/kakaoIcon.png";
-import naverIcon from "../assets/login/naverIcon.png";
+import { defaultFontText as Text } from "./Text";
+import appleIcon from "../../assets/login/appleIcon.png";
+import kakaoIcon from "../../assets/login/kakaoIcon.png";
+import naverIcon from "../../assets/login/naverIcon.png";
 
 const Button = ({text, handlePress, opt}) => {
 

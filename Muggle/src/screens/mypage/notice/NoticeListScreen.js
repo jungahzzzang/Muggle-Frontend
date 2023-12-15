@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, SafeAreaView, FlatList} from "react-native";
 import { useNavigation } from "@react-navigation/core";
-import NavigationHeader from "../../../components/NavigationHeader";
+import NavigationHeader from "../../../components/shared/NavigationHeader";
 import { NoticeData } from "../../../assets/json/FlatData";
 import NoticeAccordian from "./NoticeAccordian";
 

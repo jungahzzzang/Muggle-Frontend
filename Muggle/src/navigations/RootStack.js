@@ -2,7 +2,7 @@ import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
 import AuthStack from "./AuthStack";
 import MainStack from "./MainStack";
-import Loading from "../components/Loading";
+import Loading from "../components/shared/Loading";
 
 const Stack = createStackNavigator();
 

@@ -7,9 +7,9 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-nativ
 import { filterOnlyMusical } from "../../utils/util";
 import { getMonthMusical } from "../../utils/api";
 import MonthMusicalList from "../../components/musical/MonthMusicalList";
-import Loading from "../../components/Loading";
-import NavigationHeader from "../../components/NavigationHeader";
-import SearchBar from "../../components/SearchBar"
+import Loading from "../../components/shared/Loading";
+import NavigationHeader from "../../components/shared/NavigationHeader";
+import SearchBar from "../../components/shared/SearchBar"
 
 const images = [
     require("../../assets/banner/banner_sample1.png"),

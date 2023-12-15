@@ -4,8 +4,8 @@ import { useNavigation } from "@react-navigation/native";
 import styled from "@emotion/native";
 import { useQuery } from "react-query";
 import { getMusicalData } from "../../utils/api";
-import { defaultFontText as Text } from "../../components/Text";
-import NavigationHeader from "../../components/NavigationHeader";
+import { defaultFontText as Text } from "../../components/shared/Text";
+import NavigationHeader from "../../components/shared/NavigationHeader";
 
 export default function MusicalDetailScreen({
     

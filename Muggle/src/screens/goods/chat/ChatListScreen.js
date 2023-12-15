@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, SafeAreaView } from "react-native";
-import { defaultFontText as Text } from "../../../components/Text";
+import { defaultFontText as Text } from "../../../components/shared/Text";
 
 const ChatListScreen = () => {
 

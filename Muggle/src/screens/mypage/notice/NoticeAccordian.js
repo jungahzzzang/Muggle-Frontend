@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
-import { defaultFontText as Text } from "../../../components/Text";
+import { defaultFontText as Text } from "../../../components/shared/Text";
 import Icon from "react-native-vector-icons/Ionicons"
 
 const NoticeAccordian = ({title, body, date}) => {

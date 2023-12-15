@@ -39,7 +39,7 @@ const Loading = ({navigation}) => {
     return (
         <Loader>
             <LogoWrapper>
-                <Logo source={require('../assets/logo/muggle_logo.png')}/>
+                <Logo source={require('../../assets/logo/muggle_logo.png')}/>
             </LogoWrapper>
             <ActivityIndicator color={'#22AFFC'} animating={animation} />
         </Loader>

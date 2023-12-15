@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, TextInput } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons"
-import { defaultFontText as Text } from "../components/Text";
+import { defaultFontText as Text } from "./Text";
 
 const SearchBar = ({term, onTermChange, onTermSubmit, placeholder}) => {
 

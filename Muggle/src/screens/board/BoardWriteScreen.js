@@ -4,8 +4,8 @@ import { useNavigation } from "@react-navigation/native";
 import {actions, defaultActions, RichEditor, RichToolbar} from "react-native-pell-rich-editor";
 import KeyboardSpacer from "react-native-keyboard-spacer";
 import HTMLView from "react-native-htmlview";
-import { defaultFontText as Text } from "../../components/Text";
-import NavigationHeader from "../../components/NavigationHeader";
+import { defaultFontText as Text } from "../../components/shared/Text";
+import NavigationHeader from "../../components/shared/NavigationHeader";
 
 const BoardWriteScreen = () => {
 

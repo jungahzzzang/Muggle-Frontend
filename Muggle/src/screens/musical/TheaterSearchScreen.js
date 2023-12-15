@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, View, SafeAreaView} from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { defaultFontText as Text } from "../../components/Text";
-import SearchBar from "../../components/SearchBar";
-import NavigationHeader from "../../components/NavigationHeader";
+import { defaultFontText as Text } from "../../components/shared/Text";
+import SearchBar from "../../components/shared/SearchBar";
+import NavigationHeader from "../../components/shared/NavigationHeader";
 
 const TheaterSearchScreen = () => {
 

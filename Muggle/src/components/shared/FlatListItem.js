@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, TouchableOpacity} from "react-native";
-import { defaultFontText as Text } from "../components/Text";
+import { defaultFontText as Text } from "./Text";
 
 export default function ListItem({onPress, title}) {
 

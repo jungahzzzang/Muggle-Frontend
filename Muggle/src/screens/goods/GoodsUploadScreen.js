@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { StyleSheet, View, Text, SafeAreaView, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import NavigationHeader from "../../components/NavigationHeader";
+import NavigationHeader from "../../components/shared/NavigationHeader";
 
 const GoodsUploadScreen = () => {
 

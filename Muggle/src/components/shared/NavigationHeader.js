@@ -2,7 +2,7 @@ import React from "react";
 import {View, TouchableOpacity, StyleSheet} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Ionicons"
-import { defaultFontText as Text } from "../components/Text";
+import { defaultFontText as Text } from "./Text";
 
 //네비게이션 헤더 생성
 const NavigationHeader = ({title, leftIcon, leftIconName, rightIcon1, rightIcon, rightButton, rightBtnText, rightBtnText2, rightIconName, rightIconName2, onPressLeft, onPressRight, onPressRight2}) => {

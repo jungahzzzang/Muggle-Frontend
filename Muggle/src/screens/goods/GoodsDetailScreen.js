@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, View, SafeAreaView, Image, TouchableOpacity, ScrollView } from "react-native";
-import { defaultFontText as Text } from "../../components/Text";
+import { defaultFontText as Text } from "../../components/shared/Text";
 import { useNavigation } from "@react-navigation/native";
-import NavigationHeader from "../../components/NavigationHeader";
+import NavigationHeader from "../../components/shared/NavigationHeader";
 
 const GoodsDetailScreen = ({route}) => {
 

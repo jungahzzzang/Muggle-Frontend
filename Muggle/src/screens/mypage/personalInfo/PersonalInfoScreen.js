@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, View, SafeAreaView} from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { defaultFontText as Text } from "../../../components/Text";
-import NavigationHeader from "../../../components/NavigationHeader";
+import { defaultFontText as Text } from "../../../components/shared/Text";
+import NavigationHeader from "../../../components/shared/NavigationHeader";
 
 const PersonalInfoScreen = () => {
 

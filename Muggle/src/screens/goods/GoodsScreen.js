@@ -3,8 +3,8 @@ import { StyleSheet, View, SafeAreaView, FlatList, TouchableOpacity, Image} from
 import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Ionicons"
 
-import { defaultFontText as Text } from "../../components/Text";
-import NavigationHeader from "../../components/NavigationHeader";
+import { defaultFontText as Text } from "../../components/shared/Text";
+import NavigationHeader from "../../components/shared/NavigationHeader";
 import { GoodsData } from "../../assets/json/FlatData";
 
 const GoodsScreen = ({}) => {

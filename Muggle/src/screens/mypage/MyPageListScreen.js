@@ -1,8 +1,8 @@
 import React from "react";
 import {StyleSheet, View, TouchableOpacity, ScrollView, FlatList, SafeAreaView} from "react-native";
 import {useNavigation} from "@react-navigation/native";
-import NavigationHeader from "../../components/NavigationHeader";
-import FlatListItem from "../../components/FlatListItem";
+import NavigationHeader from "../../components/shared/NavigationHeader";
+import FlatListItem from "../../components/shared/FlatListItem";
 import Routes from "../../navigations/Routes";
 import {MyPageListData} from "../../assets/json/FlatData";
 

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { StyleSheet, Dimensions } from "react-native";
-import { defaultFontText as Text } from "../components/Text";
-import {theme} from "../theme";
+import { defaultFontText as Text } from "../shared/Text";
+import {theme} from "../../theme";
 
 const Container = styled.View`
     width: ${({ width }) => width - 40}px;
