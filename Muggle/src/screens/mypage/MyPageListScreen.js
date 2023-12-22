@@ -1,13 +1,17 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {StyleSheet, View, TouchableOpacity, ScrollView, FlatList, SafeAreaView} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import NavigationHeader from "../../components/shared/NavigationHeader";
 import FlatListItem from "../../components/shared/FlatListItem";
 import Routes from "../../navigations/Routes";
 import {MyPageListData} from "../../assets/json/FlatData";
+import {useLogoutModal, useUnRegisterCheckModal} from "../../modal/useModal";
 
 const MyPageListScreen = () => {
     const navigation = useNavigation();
+    const {openModal : setLogoutModalVisible} = useLogoutModal();
+    const {openModal : openUnRegisterCheckModal} = useUnRegisterCheckModal();
+    //const [logoutModalVisible, setLogoutModalVisible] = useState(false);
 
     return (
 

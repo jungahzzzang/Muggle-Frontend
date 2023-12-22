@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { StyleSheet, View, SafeAreaView, Image, TouchableOpacity, Alert} from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { login, logout, unlink, getProfile, getAccessToken} from '@react-native-seoul/kakao-login';
+import { login, unlink, getProfile, getAccessToken} from '@react-native-seoul/kakao-login';
 import Button from "../shared/Button";
 import { kakaoRedirectURL } from "../../utils/OAuth";
 
@@ -44,16 +44,6 @@ const KakaoSignIn = ({navigation}) => {
         }
     };
 
-    const signOutWithKakao = async() => {
-        try {
-            const message = await logout();
-            console.log(message);
-            setKakaoToken('');
-        }catch (err) {
-            console.log('signOut error', err);
-        }
-    };
-
     const getKakaoProfile = async () => {
         try {
             const profile = await getKakaoProfile();
@@ -74,18 +64,8 @@ const KakaoSignIn = ({navigation}) => {
 
 
     return (
-        <View style={styles.btnArea}>
-            <Button opt={"kakao"} text="카카오톡 아이디 로그인" handlePress={kakaoLogin}/>
-        </View>
+        <Button opt={"kakao"} text="카카오톡 아이디 로그인" handlePress={kakaoLogin}/>
     )
 }
-
-const styles = StyleSheet.create({
-    
-    btnArea: {
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
 
 export default KakaoSignIn;

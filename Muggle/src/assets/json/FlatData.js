@@ -23,6 +23,10 @@ export const MyPageListData = [
         title: '서비스 이용약관',
         name: 'Terms'
     },
+    {
+        title: '로그아웃',
+        name: 'Logout'
+    },
 ];
 
 export const NoticeData = [

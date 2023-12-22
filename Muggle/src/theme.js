@@ -42,5 +42,8 @@ export const theme = {
 
     //SearchBar
     unclicked: colors.grey_0,
-    clicked: colors.grey_1
+    clicked: colors.grey_1,
+
+    //Modal
+    modalYes: colors.purple
 };

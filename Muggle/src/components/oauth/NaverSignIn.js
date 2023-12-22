@@ -21,6 +21,7 @@ const naverKey = {
 
 const NaverSignIn = ({navigation}) => {
 
+    const [loading, setLoading] = React.useState(false);
     const [naverToken, setNaverToken] = React.useState(null);
     const [success, setSuccessResponse] = useState();
     const [failure, setFailureResponse] = useState();
@@ -88,66 +89,10 @@ const NaverSignIn = ({navigation}) => {
     }, [naverToken]);
 
     return (
-        <View style={styles.btnArea}>
-            <Button opt={"naver"} text="네이버 아이디 로그인"  handlePress={signInWithNaver}/>
-            {/* <TouchableOpacity onPress={deleteToken}><Text>deleteToken</Text></TouchableOpacity>
-            <TouchableOpacity onPress={naverSignOut}><Text>로그아웃</Text></TouchableOpacity> */}
-        </View>
+        <Button opt={"naver"} text="네이버 아이디 로그인"  handlePress={signInWithNaver}/>
+        /* <TouchableOpacity onPress={deleteToken}><Text>deleteToken</Text></TouchableOpacity>
+        <TouchableOpacity onPress={naverSignOut}><Text>로그아웃</Text></TouchableOpacity> */
     )
 }
-
-const styles = StyleSheet.create({
-    
-    btnArea: {
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    naverBtn: {
-        flexDirection: 'row',
-        width: '100%',
-        height: 50,
-        borderRadius: 3,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2DB400',
-        marginBottom: 10,
-      },
-      kakaoBtn: {
-        flexDirection: 'row',
-        width: '100%',
-        height: 50,
-        borderRadius: 3,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#FEE500',
-        marginBottom: 10,
-      },
-      appleBtn: {
-        flexDirection: 'row',
-        width: '100%',
-        height: 50,
-        borderRadius: 3,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#000000',
-      },
-      btnAppleText: {
-        marginLeft: 10,
-        fontSize: wp('4%'),
-        fontWeight: 'bold',
-        color: '#fff',
-      },
-      btnKakaoText: {
-        marginLeft: 10,
-        fontSize: wp('4%'),
-        fontWeight: 'bold',
-      },
-      btnNaverText: {
-        marginLeft: 10,
-        color: 'white',
-        fontSize: wp('4%'),
-        fontWeight: 'bold',
-      },
-});
 
 export default NaverSignIn;
