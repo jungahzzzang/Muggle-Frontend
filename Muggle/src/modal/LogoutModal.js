@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { useNavigation } from "@react-navigation/native";
 import { useLogoutModal } from "./useModal";
@@ -12,10 +12,11 @@ export default function LogoutModal() {
 
     const {isModalOpen, closeModal} = useLogoutModal();
     const navigation = useNavigation();
+    const [kakaoToken, setKakaoToken] = useState('');
 
     const _logout = () => {
         signOutWithKakao();
-        navigation.navigate('login');
+        navigation.navigate('Login');
         closeModal();
     }
 
