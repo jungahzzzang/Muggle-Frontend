@@ -1,16 +1,9 @@
 import React, {useEffect, useState} from "react";
-import { StyleSheet, View, SafeAreaView, Image, TouchableOpacity, Alert} from "react-native";
-import NaverLogin, {NaverLoginResponse, GetProfileResponse} from '@react-native-seoul/naver-login';
-import {
-    widthPercentageToDP as wp,
-    heightPercentageToDP as hp,
-    widthPercentageToDP,
-    heightPercentageToDP,
-  } from 'react-native-responsive-screen';
+import NaverLogin from '@react-native-seoul/naver-login';
 import Button from "../shared/Button";
 import { naverRedirectURL } from "../../utils/OAuth";
-import naverSecret from '../../utils/OAuth';
-import naverClientId from "../../utils/OAuth";
+import { naverSecret }from '../../utils/OAuth';
+import { naverClientId } from "../../utils/OAuth";
 
 const naverKey = {
     consumerKey: naverClientId,
@@ -70,11 +63,6 @@ const NaverSignIn = ({navigation}) => {
             setFailureResponse(failureResponse);
         }
     }
-
-    const naverSignOut = async () => {
-        await NaverLogin.logout();
-        setNaverToken('');
-    };
 
     const deleteToken = async () => {
         await NaverLogin.deleteToken();

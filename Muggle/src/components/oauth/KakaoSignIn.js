@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { StyleSheet, View, SafeAreaView, Image, TouchableOpacity, Alert} from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { login, unlink, getProfile, getAccessToken} from '@react-native-seoul/kakao-login';
 import Button from "../shared/Button";

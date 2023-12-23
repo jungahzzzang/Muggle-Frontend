@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import styled from "styled-components";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import { useLogoutModal } from "./useModal";
 import ModalButton from "./ModalButton";
 import ModalSheet from "./ModalSheet";
-import {KakaoSignIn} from '../components/oauth/KakaoSignIn';
+import NaverLogin from '@react-native-seoul/naver-login';
 import { logout} from '@react-native-seoul/kakao-login';
 import { defaultFontText as Text } from "../components/shared/Text";
 
@@ -13,10 +14,17 @@ export default function LogoutModal() {
     const {isModalOpen, closeModal} = useLogoutModal();
     const navigation = useNavigation();
     const [kakaoToken, setKakaoToken] = useState('');
+    const [naverToken, setNaverToken] = React.useState(null);
 
-    const _logout = () => {
+    function logoutALL() {
+        AsyncStorage.clear();
+
+        signOutWithNaver();
+
         signOutWithKakao();
+
         navigation.navigate('Login');
+        
         closeModal();
     }
 
@@ -30,13 +38,18 @@ export default function LogoutModal() {
         }
     };
 
+    const signOutWithNaver = async () => {
+        await NaverLogin.logout();
+        setNaverToken('');
+    };
+
     return (
         <ModalSheet isModalOpen={isModalOpen} closeModal={closeModal}>
             <ModalContainer>
                 <Text>로그아웃 하시겠어요?</Text>
                 <Row>
                     <ModalButton
-                        onPress={_logout}
+                        onPress={logoutALL}
                         text={'예'}
                         white
                         width={'110px'}
