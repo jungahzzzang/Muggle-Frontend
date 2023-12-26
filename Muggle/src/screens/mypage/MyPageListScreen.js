@@ -18,7 +18,7 @@ const MyPageListScreen = () => {
         <SafeAreaView style={styles.container}>
             <View>
                     <NavigationHeader title={"설정"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}/>
-                    <FlatListItem
+                        <FlatListItem
                             title={MyPageListData[0].title}
                             onPress={() => navigation.navigate(Routes.Profile)}
                         />

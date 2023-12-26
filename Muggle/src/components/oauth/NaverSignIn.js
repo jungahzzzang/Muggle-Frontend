@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import NaverLogin from '@react-native-seoul/naver-login';
 import Button from "../shared/Button";
 import { naverRedirectURL } from "../../utils/OAuth";

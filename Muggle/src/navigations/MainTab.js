@@ -9,7 +9,7 @@ import MainScreen from "../screens/main/MainScreen";
 import BoardScreen from "../screens/board/BoardScreen";
 import ProfileScreen from "../screens/mypage/profile/ProfileScreen";
 import GoodsScreen from "../screens/goods/GoodsScreen";
-import TheaterSearchScreen from "../screens/musical/TheaterSearchScreen";
+import TheaterListScreen from "../screens/musical/TheaterListScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -55,7 +55,7 @@ const MainTab = () => {
             />
             <Tab.Screen
                 name="뮤글 공연장"
-                component={TheaterSearchScreen}
+                component={TheaterListScreen}
                 options={{
                     headerStyle: {
                         height: 40

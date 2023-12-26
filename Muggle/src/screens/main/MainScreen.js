@@ -11,12 +11,6 @@ import Loading from "../../components/shared/Loading";
 import NavigationHeader from "../../components/shared/NavigationHeader";
 import SearchBar from "../../components/shared/SearchBar"
 
-const images = [
-    require("../../assets/banner/banner_sample1.png"),
-    require("../../assets/banner/banner_sample2.png"),
-    require("../../assets/banner/banner_sample3.png"),
-];
-
 const windowHeight = Dimensions.get('window').height;
 
 const Container = styled.FlatList`
