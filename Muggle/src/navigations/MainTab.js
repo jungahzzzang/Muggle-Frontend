@@ -9,7 +9,7 @@ import MainScreen from "../screens/main/MainScreen";
 import BoardScreen from "../screens/board/BoardScreen";
 import ProfileScreen from "../screens/mypage/profile/ProfileScreen";
 import GoodsScreen from "../screens/goods/GoodsScreen";
-import TheaterListScreen from "../screens/musical/TheaterListScreen";
+import TheaterListScreen from "../screens/theater/TheaterListScreen";
 
 const Tab = createBottomTabNavigator();
 

@@ -63,39 +63,6 @@ export const getTheaterList = async() =>  {
     });
 
     return dataArr;
-
-    // return fetch(url)
-    //     .then((res) => {
-    //         console.log(res.status);
-
-    //     if (res.status == 200) {
-    //         let crawledTheaterList = [];
-    //         const $ = cheerio.load(res.data);
-    //         const $theaterList = $('.theater-right');
-
-    //         $theaterList.each(function(i) {
-    //             console.log(i)
-    //         })
-
-    //         //console.log(crawledTheaterList);
-    //     } else {
-    //         console.log("server response error");
-    //     }
-    //     })
-
-    // try {
-    //     const pageNum = 1;
-    //     const browser = await puppeteer.launch();
-    //     const page =await browser.newPage();
-    //     await page.goto(`${MUSICAL_THEATER_URL}`, {
-    //         waitUntil: 'networkidle0'
-    //     });
-    //     const html = await page.content();
-    //     await fs.writeFile('reactstorefront.html', html);
-    //     await browser.close();
-    // } catch (err) {
-    //     console.error(err);
-    // }
 }
 
 export const GetSeat = async(params) => {
