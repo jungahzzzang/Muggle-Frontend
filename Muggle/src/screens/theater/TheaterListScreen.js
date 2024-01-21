@@ -86,7 +86,7 @@ export default function TheaterListScreen() {
                     <FlatList
                         data={theater}
                         renderItem={({ item }) => (
-                            <TouchableOpacity style={styles.list}>
+                            <TouchableOpacity style={styles.list} onPress={() => navigation.navigate('TheaterDetail', item)}>
                                 <View>
                                     <Text style={styles.text}>{item.title}</Text>
                                 </View>

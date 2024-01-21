@@ -21,6 +21,7 @@ import BoardWriteScreen from "../screens/board/BoardWriteScreen";
 import GoodsUploadScreen from "../screens/goods/GoodsUploadScreen";
 import GoodsDetailScreen from "../screens/goods/GoodsDetailScreen";
 import MusicalDetailScreen from "../screens/musical/MusicalDetailScreen";
+import TheaterDetailScreen from "../screens/theater/TheaterDetailScreen";
 
 const Stack = createStackNavigator();
 
@@ -127,6 +128,11 @@ const MainStack = () => {
             <Stack.Screen
                 name="MusicalDetail"
                 component={MusicalDetailScreen}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="TheaterDetail"
+                component={TheaterDetailScreen}
                 options={{headerShown: false}}
             />
         </Stack.Navigator>
