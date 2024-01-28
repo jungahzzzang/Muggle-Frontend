@@ -41,16 +41,9 @@ export default function TheaterListScreen() {
        const html = await getHTML();
        const dataArr = [];
 
-        //console.log('fetch 완료!!!!', html);
-
         const $ = cheerio.load(html.data);
-
-        //console.log('fetch 완료!!!!', cheerio.load(html.data));
     
         const $child = $(".theater-right>div>a");
-
-
-        //console.log('fetch 완료!!!!', $child);
     
         $child.each((idx, node) => {
             const title = $(node).text();

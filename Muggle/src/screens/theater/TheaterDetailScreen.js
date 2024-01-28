@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef, useMemo, useCallback} from "react";
 import axios from "axios";
 const cheerio = require('cheerio');
 import { StyleSheet, View, SafeAreaView, Image, TouchableOpacity, ScrollView } from "react-native";
+import { BottomSheetModal, BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { defaultFontText as Text } from "../../components/shared/Text";
 import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
 import { useNavigation } from "@react-navigation/native";
@@ -46,6 +47,8 @@ const TheaterDetailScreen = ({route}) => {
     const [loading, setLoading] = useState(true);
     const [seatArray, setSeatArray] = useState([]);
     const [twoDSeatArry, setTwoDSeatArry] = useState(generateSeat());
+    const bottomSheetModalRef = useRef(null);
+    const snapPoints = useMemo(() => ['50%'], []);
 
     const getHTML = async() => {
         try {
@@ -77,24 +80,29 @@ const TheaterDetailScreen = ({route}) => {
         let numCol = firstWidth.length;
         let rowArray = [];
         let atlast = false;
+        let columnArray = [];
         for (let i = 0; i < numRow; i++) {
-            let columnArray = [];
+            let row = [];
             for (let j = 0; j < numCol; j++) {
-                if ($('.floor_container').children().eq(0).children(":eq("+j+")").find('p').text() != $('.floor_container').children().eq(0).children(":eq("+i+")").find('p').text()) {
-                    j = j+1;
-                }
+                // if ($('.floor_container').children().eq(0).children(":eq("+j+")").find('p').text() != $('.floor_container').children().eq(0).children(":eq("+i+")").find('p').text()) {
+                //     j = j+1;
+                // }
             let seatObj = {
                 number: $(".floor_container").children().eq(1).children(":eq("+j+")").children().eq(i).find('p').text(),
                 selected: false,
             };
-            columnArray.push(seatObj);
+            //columnArray.push(seatObj);
+            row.push(seatObj);
+            console.log('==========rowr==========', row);
             }
             // if (numCol < numRow && !atlast) {
             // numCol += 2;
             // } else {
             // (atlast = true), (numCol -= 2);
             // }
-            rowArray.push(columnArray);
+            //rowArray.push(columnArray);
+            rowArray.push(row);
+            console.log('========rowArray=========', rowArray);
         }
         //return rowArray;
 
@@ -109,25 +117,38 @@ const TheaterDetailScreen = ({route}) => {
             //}
     }
 
+    const openReviewModal = (owIndex, seatIndex) => {
+        bottomSheetModalRef.current?.present();
+      };
+
+
     useEffect(() => {
         getSeatInfo();
     }, []);
 
     return (
+        <BottomSheetModalProvider>
         <SafeAreaView style={styles.container}>
             <NavigationHeader title={"좌석정보"} leftIcon leftIconName={"chevron-back-outline"} onPressLeft={() => navigation.goBack()}
                               rightIcon rightIconName={"pencil-outline"} onPressRight={() => navigation.navigate("Write")}/>
             <ScrollView>
                     <View style={styles.seatContainer}>
                     <View> 
-                        {seatArray.map((item, index) => {
+                        {seatArray.map((row, rowIndex) => {
                         return (
-                            <View style={styles.seatRow} key={index}>
-                                {item?.map((subitem, subindex) => {
+                            <View style={styles.seatRow} key={rowIndex}>
+                                {row?.map((seat, seatIndex) => {
                                     return (
-                                        <View style={{ width: 20, height: 20, backgroundColor: 'orange', margin: 5 }}>
-                                            <Text>{subitem.number}</Text>
-                                        </View>
+                                        <TouchableOpacity
+                                            key={seatIndex}
+                                            onPress={() => {
+                                                openReviewModal(rowIndex, seatIndex, seat.number);
+                                            }}
+                                        >
+                                            <View style={{ width: 20, height: 20, backgroundColor: 'orange', margin: 5 }}>
+                                                <Text>{seat.number}</Text>
+                                            </View>
+                                        </TouchableOpacity>
                                     )
                                 })}
                             </View>     
@@ -137,6 +158,16 @@ const TheaterDetailScreen = ({route}) => {
                     </View>     
             </ScrollView>
         </SafeAreaView> 
+        <BottomSheetModal
+            ref={bottomSheetModalRef}
+            index={0}
+            snapPoints={snapPoints}
+        >
+            <View>
+                <Text>모달 테스트</Text>
+            </View>
+        </BottomSheetModal>
+        </BottomSheetModalProvider>
     )
 }
 
